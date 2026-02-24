@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ContactSection from "@/components/ContactSection";
-import FooterBar from "@/components/FooterBar";
 
 export const metadata: Metadata = {
   title: "Book a Session | ZigZag Studio",
@@ -14,7 +13,6 @@ export default function ContactPage() {
     <main>
       <PageHero title="Book a Session" subtitle="Let's create together." />
       <ContactSection />
-      <FooterBar />
     </main>
   );
 }

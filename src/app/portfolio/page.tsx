@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import PortfolioShowcase from "@/components/PortfolioShowcase";
-import FooterCTA from "@/components/FooterCTA";
-import FooterBar from "@/components/FooterBar";
 
 export const metadata: Metadata = {
   title: "Portfolio | ZigZag Studio",
@@ -17,8 +15,6 @@ export default function PortfolioPage() {
       <PageHero title="Our Work" subtitle="Featured Projects" />
       <PortfolioGrid />
       <PortfolioShowcase />
-      <FooterCTA />
-      <FooterBar />
     </main>
   );
 }

@@ -5,6 +5,8 @@ import TopBar from "@/components/TopBar";
 import BottomNav from "@/components/BottomNav";
 import ServicePanel from "@/components/ServicePanel";
 import GlobalLens from "@/components/GlobalLens";
+import FooterCTA from "@/components/FooterCTA";
+import FooterBar from "@/components/FooterBar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -37,6 +39,8 @@ export default function RootLayout({
               {children}
             </div>
           </GlobalLens>
+          <FooterCTA />
+          <FooterBar />
           <BottomNav />
           <ServicePanel />
         </TransitionProvider>

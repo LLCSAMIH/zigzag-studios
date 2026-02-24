@@ -4,8 +4,6 @@ import ServicesSection from "@/components/ServicesSection";
 import PricingSection from "@/components/PricingSection";
 import ProcessSection from "@/components/ProcessSection";
 import FAQSection from "@/components/FAQSection";
-import FooterCTA from "@/components/FooterCTA";
-import FooterBar from "@/components/FooterBar";
 
 export const metadata: Metadata = {
   title: "Services & Packages | ZigZag Studio",
@@ -21,8 +19,6 @@ export default function ServicesPage() {
       <PricingSection />
       <ProcessSection />
       <FAQSection />
-      <FooterCTA />
-      <FooterBar />
     </main>
   );
 }

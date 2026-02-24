@@ -36,12 +36,26 @@ export default function FooterBar() {
         className="font-sans"
         style={{
           fontSize: "clamp(1.4rem, 3vw, 2rem)",
-          color: "var(--gray300)",
+          color: "var(--accent)",
           letterSpacing: "-0.05rem",
         }}
       >
         Capture + Create
       </span>
+
+      <a
+        href="https://beirux.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-sans transition-colors duration-300 hover:text-accent"
+        style={{
+          fontSize: "clamp(1.4rem, 3vw, 2rem)",
+          color: "var(--gray300)",
+          letterSpacing: "-0.05rem",
+        }}
+      >
+        Engineered by BEIRUX
+      </a>
     </footer>
   );
 }
