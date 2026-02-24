@@ -47,7 +47,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative flex items-center section-padding"
+      className="relative flex items-center justify-center section-padding"
       style={{ minHeight: "100vh" }}
     >
       <Image
@@ -61,7 +61,7 @@ export default function HeroSection() {
         className="absolute inset-0"
         style={{ backgroundColor: "rgba(28, 46, 62, 0.6)" }}
       />
-      <div className="content-container relative z-10">
+      <div className="relative z-10" style={{ textAlign: "left" }}>
         <h1>
           <span
             className="font-serif italic block text-white"
@@ -74,39 +74,64 @@ export default function HeroSection() {
             We help realtors in the tri-state area
           </span>
           <span
-            className="block relative"
+            className="inline-block relative"
             style={{
-              height: "clamp(3.6rem, 6vw, 7.2rem)",
-              lineHeight: 1,
-              overflow: "hidden",
-              clipPath: "inset(0 0 0 0)",
+              borderRadius: "0.8rem",
+              background: "rgba(28,46,62,0.6)",
+              backdropFilter: "blur(1rem)",
+              WebkitBackdropFilter: "blur(1rem)",
+              marginTop: "1.2rem",
             }}
           >
-            {/* Current word */}
+            {/* Invisible sizer — widest word sets fixed pill width */}
             <span
-              className="font-sans block text-white absolute w-full"
+              className="font-sans block invisible"
               style={{
                 fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
                 letterSpacing: "-0.4rem",
-                transition: transitionStyle,
-                transform:
-                  phase === "exit" ? "translateY(-100%)" : "translateY(0)",
+                lineHeight: 1.2,
+                padding: "0.8rem 2rem",
               }}
+              aria-hidden="true"
             >
-              {words[currentIndex]}
+              {words.reduce((a, b) => (a.length > b.length ? a : b))}
             </span>
-            {/* Next word */}
+            {/* Visible carousel layered on top */}
             <span
-              className="font-sans block text-white absolute w-full"
+              className="absolute inset-0 overflow-hidden"
               style={{
-                fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
-                letterSpacing: "-0.4rem",
-                transition: transitionStyle,
-                transform:
-                  phase === "exit" ? "translateY(0)" : "translateY(100%)",
+                borderRadius: "0.8rem",
+                clipPath: "inset(0 0 0 0)",
               }}
             >
-              {words[nextIndex]}
+              <span
+                className="font-sans block text-white absolute left-0 right-0"
+                style={{
+                  fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
+                  letterSpacing: "-0.4rem",
+                  lineHeight: 1.2,
+                  padding: "0.8rem 2rem",
+                  transition: transitionStyle,
+                  transform:
+                    phase === "exit" ? "translateY(-100%)" : "translateY(0)",
+                }}
+              >
+                {words[currentIndex]}
+              </span>
+              <span
+                className="font-sans block text-white absolute left-0 right-0"
+                style={{
+                  fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
+                  letterSpacing: "-0.4rem",
+                  lineHeight: 1.2,
+                  padding: "0.8rem 2rem",
+                  transition: transitionStyle,
+                  transform:
+                    phase === "exit" ? "translateY(0)" : "translateY(100%)",
+                }}
+              >
+                {words[nextIndex]}
+              </span>
             </span>
           </span>
         </h1>
