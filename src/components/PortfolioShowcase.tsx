@@ -93,11 +93,10 @@ export default function PortfolioShowcase() {
 
       <div
         ref={scrollRef}
-        className="flex gap-8 hide-scrollbar"
+        className="flex gap-8 hide-scrollbar section-padding"
         style={{
           overflowX: "auto",
           scrollSnapType: "x mandatory",
-          paddingRight: "10rem",
           paddingBottom: "2rem",
         }}
       >

@@ -92,7 +92,7 @@ export default function BottomNav() {
             left: pillStyle.left,
             width: pillStyle.width,
             borderRadius: "10rem",
-            background: "var(--accent)",
+            background: "var(--gray900)",
             transition: mounted
               ? `left ${PILL_DURATION} ${PILL_EASING}, width ${PILL_DURATION} ${PILL_EASING}`
               : "none",

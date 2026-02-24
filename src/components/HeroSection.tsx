@@ -81,7 +81,6 @@ export default function HeroSection() {
               backdropFilter: "blur(1rem)",
               WebkitBackdropFilter: "blur(1rem)",
               marginTop: "1.2rem",
-              border: "1px solid rgba(242, 97, 1, 0.4)",
             }}
           >
             {/* Invisible sizer — widest word sets fixed pill width */}
@@ -106,12 +105,13 @@ export default function HeroSection() {
               }}
             >
               <span
-                className="font-sans block text-white absolute left-0 right-0"
+                className="font-sans block absolute left-0 right-0"
                 style={{
                   fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
                   letterSpacing: "-0.4rem",
                   lineHeight: 1.2,
                   padding: "0.8rem 2rem",
+                  color: "var(--accent)",
                   transition: transitionStyle,
                   transform:
                     phase === "exit" ? "translateY(-100%)" : "translateY(0)",
@@ -120,12 +120,13 @@ export default function HeroSection() {
                 {words[currentIndex]}
               </span>
               <span
-                className="font-sans block text-white absolute left-0 right-0"
+                className="font-sans block absolute left-0 right-0"
                 style={{
                   fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
                   letterSpacing: "-0.4rem",
                   lineHeight: 1.2,
                   padding: "0.8rem 2rem",
+                  color: "var(--accent)",
                   transition: transitionStyle,
                   transform:
                     phase === "exit" ? "translateY(0)" : "translateY(100%)",
