@@ -9,6 +9,7 @@
   --color-brand: #1C2E3E;
   --color-brand-light: #2E4457;
   --color-brand-lighter: #3D5568;
+  --color-accent: #F26101;
   --color-backdrop: rgba(28, 46, 62, 0.6);
   --font-sans: var(--font-plus-jakarta);
   --font-serif: var(--font-playfair);
@@ -21,6 +22,7 @@
   --gray300: #C9D1D8;
   --gray900: #F4F6F8;
   --brand: #1C2E3E;
+  --accent: #F26101;
   --backdrop: blur(1rem);
   --backdrop-background: rgba(28, 46, 62, 0.6);
 }
@@ -174,6 +176,11 @@ body::before {
 .page-wrapper {
   transform-origin: center center;
   overflow: hidden;
+}
+
+/* Accent focus for contact form inputs */
+.contact-input:focus {
+  border-bottom-color: var(--accent) !important;
 }
 
 /* Reduced motion */

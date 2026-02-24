@@ -52,7 +52,7 @@ export default function FooterCTA() {
       >
         Book a Session
         <span className="absolute bottom-0 left-0 w-full h-px bg-gray100 origin-left transition-transform duration-300 group-hover:scale-x-0" />
-        <span className="absolute bottom-0 left-0 w-full h-px bg-gray100 origin-right scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+        <span className="absolute bottom-0 left-0 w-full h-px bg-accent origin-right scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
       </TransitionLink>
     </section>
   );

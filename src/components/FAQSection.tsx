@@ -50,10 +50,11 @@ export default function FAQSection() {
                 {faq.question}
               </span>
               <span
-                className="font-sans text-gray900 flex-shrink-0"
+                className="font-sans flex-shrink-0"
                 style={{
                   fontSize: "2.4rem",
                   marginLeft: "2rem",
+                  color: "var(--accent)",
                   transition: "transform 0.3s ease",
                   transform:
                     openIndex === i ? "rotate(45deg)" : "rotate(0deg)",

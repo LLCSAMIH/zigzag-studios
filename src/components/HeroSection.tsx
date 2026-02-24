@@ -81,6 +81,7 @@ export default function HeroSection() {
               backdropFilter: "blur(1rem)",
               WebkitBackdropFilter: "blur(1rem)",
               marginTop: "1.2rem",
+              border: "1px solid rgba(242, 97, 1, 0.4)",
             }}
           >
             {/* Invisible sizer — widest word sets fixed pill width */}

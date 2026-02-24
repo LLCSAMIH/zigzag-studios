@@ -81,7 +81,7 @@ export default function ContactSection() {
     borderRadius: "1.2rem",
     padding: "2.4rem 2rem",
     background: isSelected ? "#e2e5ea" : "#e8eaee",
-    border: isSelected ? "2px solid #000" : "1px solid rgba(0,0,0,0.15)",
+    border: isSelected ? "2px solid var(--accent)" : "1px solid rgba(0,0,0,0.15)",
     transition: "background 0.25s ease, border-color 0.25s ease, transform 0.15s ease",
     transform: isSelected ? "scale(0.98)" : "scale(1)",
     display: "flex",
@@ -121,7 +121,7 @@ export default function ContactSection() {
             value={form.name}
             onChange={handleChange}
             required
-            className="font-sans"
+            className="font-sans contact-input"
             style={inputStyle}
           />
 
@@ -136,7 +136,7 @@ export default function ContactSection() {
               value={form.email}
               onChange={handleChange}
               required
-              className="font-sans"
+              className="font-sans contact-input"
               style={inputStyle}
             />
             <input
@@ -145,7 +145,7 @@ export default function ContactSection() {
               placeholder="Phone number"
               value={form.phone}
               onChange={handleChange}
-              className="font-sans"
+              className="font-sans contact-input"
               style={inputStyle}
             />
           </div>
@@ -218,7 +218,7 @@ export default function ContactSection() {
             placeholder="Property address"
             value={form.address}
             onChange={handleChange}
-            className="font-sans"
+            className="font-sans contact-input"
             style={inputStyle}
           />
 
@@ -235,7 +235,7 @@ export default function ContactSection() {
                 name="date"
                 value={form.date}
                 onChange={handleChange}
-                className="font-sans"
+                className="font-sans contact-input"
                 style={{
                   ...inputStyle,
                   colorScheme: "light",
@@ -250,7 +250,7 @@ export default function ContactSection() {
                 name="time"
                 value={form.time}
                 onChange={handleChange}
-                className="font-sans"
+                className="font-sans contact-input"
                 style={{
                   ...inputStyle,
                   appearance: "none",
@@ -275,7 +275,7 @@ export default function ContactSection() {
             value={form.message}
             onChange={handleChange}
             rows={4}
-            className="font-sans"
+            className="font-sans contact-input"
             style={{
               ...inputStyle,
               resize: "none",
@@ -284,11 +284,11 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="font-sans text-gray900 flex items-center justify-center transition-opacity duration-300 hover:opacity-90 self-start"
+            className="font-sans text-white flex items-center justify-center transition-opacity duration-300 hover:opacity-90 self-start"
             style={{
               fontSize: "1.8rem",
               letterSpacing: "-0.05rem",
-              background: "var(--gray100)",
+              background: "var(--accent)",
               borderRadius: "10rem",
               padding: "1.4rem 4rem",
               marginTop: "2rem",

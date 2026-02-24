@@ -118,10 +118,10 @@ export default function PricingSection() {
                 borderRadius: "10rem",
                 padding: "1.4rem 2.4rem",
                 background: tier.highlighted
-                  ? "var(--gray900)"
+                  ? "var(--accent)"
                   : "transparent",
                 color: tier.highlighted
-                  ? "var(--gray100)"
+                  ? "#fff"
                   : "var(--gray900)",
                 border: tier.highlighted
                   ? "none"

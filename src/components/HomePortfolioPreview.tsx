@@ -109,7 +109,7 @@ export default function HomePortfolioPreview() {
         }}
       >
         View all work
-        <span className="absolute bottom-0 left-0 w-0 h-px bg-gray900 transition-all duration-300 group-hover:w-full" />
+        <span className="absolute bottom-0 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full" />
       </TransitionLink>
     </section>
   );

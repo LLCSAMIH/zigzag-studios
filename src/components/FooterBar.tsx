@@ -19,7 +19,7 @@ export default function FooterBar() {
             <a
               key={link}
               href="#"
-              className="font-sans transition-colors duration-300 hover:text-gray900"
+              className="font-sans transition-colors duration-300 hover:text-accent"
               style={{
                 fontSize: "2rem",
                 color: "var(--gray300)",
