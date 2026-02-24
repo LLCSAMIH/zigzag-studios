@@ -66,7 +66,7 @@ export default function HeroSection() {
           <span
             className="font-serif italic block text-white font-bold md:font-normal"
             style={{
-              fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
+              fontSize: "clamp(2.4rem, 6vw, 7.2rem)",
               lineHeight: 1,
               letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
             }}
@@ -89,7 +89,7 @@ export default function HeroSection() {
             <span
               className="font-sans block invisible"
               style={{
-                fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
+                fontSize: "clamp(2.4rem, 6vw, 7.2rem)",
                 letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
                 lineHeight: 1.2,
                 padding: "0.8rem 2rem",
@@ -109,7 +109,7 @@ export default function HeroSection() {
               <span
                 className="font-sans block absolute left-0 right-0"
                 style={{
-                  fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
+                  fontSize: "clamp(2.4rem, 6vw, 7.2rem)",
                   letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
                   lineHeight: 1.2,
                   padding: "0.8rem 2rem",
@@ -124,7 +124,7 @@ export default function HeroSection() {
               <span
                 className="font-sans block absolute left-0 right-0"
                 style={{
-                  fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
+                  fontSize: "clamp(2.4rem, 6vw, 7.2rem)",
                   letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
                   lineHeight: 1.2,
                   padding: "0.8rem 2rem",
