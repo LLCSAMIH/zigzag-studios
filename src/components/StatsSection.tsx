@@ -15,7 +15,7 @@ export default function StatsSection() {
     >
       <div
         className="grid grid-cols-2 md:grid-cols-4"
-        style={{ gap: "4rem" }}
+        style={{ gap: "clamp(2rem, 4vw, 4rem)" }}
       >
         {stats.map((stat) => (
           <div key={stat.label}>

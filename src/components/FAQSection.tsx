@@ -73,14 +73,13 @@ export default function FAQSection() {
               }}
             >
               <p
-                className="font-sans"
+                className="font-sans max-w-full md:max-w-[70%]"
                 style={{
                   fontSize: "2rem",
                   letterSpacing: "-0.05rem",
                   color: "var(--gray300)",
                   lineHeight: 1.4,
                   paddingBottom: "2.4rem",
-                  maxWidth: "70%",
                 }}
               >
                 {faq.answer}

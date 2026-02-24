@@ -5,7 +5,7 @@ export default function FooterBar() {
       <span
         className="font-sans"
         style={{
-          fontSize: "2rem",
+          fontSize: "clamp(1.4rem, 3vw, 2rem)",
           color: "var(--gray300)",
           letterSpacing: "-0.05rem",
         }}
@@ -21,7 +21,7 @@ export default function FooterBar() {
               href="#"
               className="font-sans transition-colors duration-300 hover:text-accent"
               style={{
-                fontSize: "2rem",
+                fontSize: "clamp(1.4rem, 3vw, 2rem)",
                 color: "var(--gray300)",
                 letterSpacing: "-0.05rem",
               }}
@@ -35,7 +35,7 @@ export default function FooterBar() {
       <span
         className="font-sans"
         style={{
-          fontSize: "2rem",
+          fontSize: "clamp(1.4rem, 3vw, 2rem)",
           color: "var(--gray300)",
           letterSpacing: "-0.05rem",
         }}

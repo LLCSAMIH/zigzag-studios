@@ -13,7 +13,7 @@ export default function AboutStory() {
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
       style={{ backgroundColor: "#F0F2F5" }}
     >
-      <div style={{ maxWidth: "70%" }}>
+      <div className="max-w-full md:max-w-[70%]">
         <p
           className="text-gray100 font-sans"
           style={{

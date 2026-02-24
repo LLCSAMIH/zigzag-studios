@@ -107,8 +107,8 @@ export default function InsightsSection() {
             key={i}
             className="flex-shrink-0 flex flex-col justify-between"
             style={{
-              width: "38rem",
-              height: "32rem",
+              width: "clamp(28rem, 80vw, 38rem)",
+              height: "clamp(24rem, 60vw, 32rem)",
               background: "var(--gray200)",
               borderRadius: "2rem",
               padding: "3rem",

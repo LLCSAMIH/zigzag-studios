@@ -61,17 +61,19 @@ export default function HeroSection() {
         className="absolute inset-0"
         style={{ backgroundColor: "rgba(28, 46, 62, 0.6)" }}
       />
-      <div className="relative z-10" style={{ textAlign: "left" }}>
+      <div className="relative z-10 text-center md:text-left">
         <h1>
           <span
-            className="font-serif italic block text-white"
+            className="font-serif italic block text-white font-bold md:font-normal"
             style={{
               fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
               lineHeight: 1,
-              letterSpacing: "-0.4rem",
+              letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
             }}
           >
-            We help realtors in the tri-state area
+            We help realtors in
+            <br className="md:hidden" />
+            {" "}the tri-state area
           </span>
           <span
             className="inline-block relative"
@@ -88,7 +90,7 @@ export default function HeroSection() {
               className="font-sans block invisible"
               style={{
                 fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
-                letterSpacing: "-0.4rem",
+                letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
                 lineHeight: 1.2,
                 padding: "0.8rem 2rem",
               }}
@@ -108,7 +110,7 @@ export default function HeroSection() {
                 className="font-sans block absolute left-0 right-0"
                 style={{
                   fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
-                  letterSpacing: "-0.4rem",
+                  letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
                   lineHeight: 1.2,
                   padding: "0.8rem 2rem",
                   color: "var(--accent)",
@@ -123,7 +125,7 @@ export default function HeroSection() {
                 className="font-sans block absolute left-0 right-0"
                 style={{
                   fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
-                  letterSpacing: "-0.4rem",
+                  letterSpacing: "clamp(-0.1rem, -0.5vw, -0.4rem)",
                   lineHeight: 1.2,
                   padding: "0.8rem 2rem",
                   color: "var(--accent)",

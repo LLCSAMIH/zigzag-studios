@@ -13,13 +13,12 @@ export default function QuoteSection() {
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
     >
       <p
-        className="font-sans"
+        className="font-sans max-w-full md:max-w-[75%]"
         style={{
           fontSize: "clamp(2.2rem, 3vw, 3.6rem)",
           lineHeight: 1.15,
           letterSpacing: "-0.05rem",
           color: "var(--gray300)",
-          maxWidth: "75%",
         }}
       >
         At ZigZag Studio, we combine technical precision with creative vision.

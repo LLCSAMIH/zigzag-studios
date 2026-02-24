@@ -105,8 +105,8 @@ export default function PortfolioShowcase() {
             key={i}
             className="flex-shrink-0 relative overflow-hidden"
             style={{
-              width: "44rem",
-              height: "32rem",
+              width: "clamp(28rem, 80vw, 44rem)",
+              height: "clamp(22rem, 60vw, 32rem)",
               borderRadius: "2rem",
               scrollSnapAlign: "start",
             }}

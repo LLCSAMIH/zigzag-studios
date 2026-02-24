@@ -54,7 +54,7 @@ export default function ContactSection() {
   };
 
   const inputStyle: React.CSSProperties = {
-    fontSize: "2rem",
+    fontSize: "clamp(1.6rem, 2.5vw, 2rem)",
     letterSpacing: "-0.05rem",
     padding: "1.6rem 0",
     background: "transparent",
@@ -110,7 +110,7 @@ export default function ContactSection() {
 
       <div
         className="grid grid-cols-1 md:grid-cols-[3fr_2fr]"
-        style={{ gap: "8rem" }}
+        style={{ gap: "clamp(4rem, 8vw, 8rem)" }}
       >
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
@@ -306,7 +306,7 @@ export default function ContactSection() {
             <h3
               className="font-serif italic text-black"
               style={{
-                fontSize: "2.8rem",
+                fontSize: "clamp(2.2rem, 4vw, 2.8rem)",
                 letterSpacing: "-0.05rem",
                 marginBottom: "3.2rem",
               }}
@@ -321,14 +321,14 @@ export default function ContactSection() {
               <a
                 href="mailto:sfeirjean1@gmail.com"
                 className="font-sans text-black transition-opacity duration-300 hover:opacity-70"
-                style={{ fontSize: "2.2rem", letterSpacing: "-0.05rem" }}
+                style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.2rem)", letterSpacing: "-0.05rem" }}
               >
                 sfeirjean1@gmail.com
               </a>
               <a
                 href="tel:+14407594048"
                 className="font-sans text-black transition-opacity duration-300 hover:opacity-70"
-                style={{ fontSize: "2.2rem", letterSpacing: "-0.05rem" }}
+                style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.2rem)", letterSpacing: "-0.05rem" }}
               >
                 (440) 759-4048
               </a>

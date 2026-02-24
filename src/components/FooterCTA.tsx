@@ -11,10 +11,9 @@ export default function FooterCTA() {
   return (
     <section
       ref={ref}
-      className={`relative flex flex-col md:flex-row items-end justify-between section-reveal ${isVisible ? "visible" : ""} section-padding section-v-hero gap-12`}
-      // To revert: remove backgroundColor, restore gradient to var(--gray100), change text-gray100 back to text-gray100, bg-gray100 to bg-gray100
+      className={`relative flex flex-col items-center justify-center md:flex-row md:items-end md:justify-between section-reveal ${isVisible ? "visible" : ""} section-padding section-v-hero gap-12`}
       style={{
-        minHeight: "100vh",
+        minHeight: "clamp(50vh, 70vh, 100vh)",
         backgroundColor: "#F0F2F5",
       }}
     >
@@ -43,11 +42,10 @@ export default function FooterCTA() {
 
       <TransitionLink
         href="/contact"
-        className="font-sans text-gray100 relative group"
+        className="font-sans text-gray100 relative group md:mr-[8rem]"
         style={{
           fontSize: "clamp(2.8rem, 4vw, 4.2rem)",
           letterSpacing: "-0.1rem",
-          marginRight: "8rem",
         }}
       >
         Book a Session

@@ -57,7 +57,7 @@ export default function PortfolioGrid() {
             className={`group relative overflow-hidden ${project.wide ? "md:col-span-2" : "md:col-span-1"}`}
             style={{
               borderRadius: "2rem",
-              height: "50rem",
+              height: "clamp(30rem, 70vw, 50rem)",
             }}
           >
             <Image
@@ -73,7 +73,7 @@ export default function PortfolioGrid() {
               style={{
                 background:
                   "linear-gradient(to top, rgba(28,46,62,0.8) 0%, rgba(28,46,62,0.15) 50%, transparent 100%)",
-                padding: "4rem",
+                padding: "clamp(2rem, 5vw, 4rem)",
               }}
             >
               <div className="flex gap-3 mb-4 flex-wrap">

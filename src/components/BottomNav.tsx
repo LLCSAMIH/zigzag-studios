@@ -78,8 +78,8 @@ export default function BottomNav() {
           backdropFilter: "blur(1rem)",
           WebkitBackdropFilter: "blur(1rem)",
           borderRadius: "10rem",
-          padding: "0.8rem",
-          height: "7.2rem",
+          padding: "clamp(0.4rem, 1vw, 0.8rem)",
+          height: "clamp(5rem, 9vw, 7.2rem)",
           border: "1px solid rgba(255,255,255,0.15)",
         }}
       >
@@ -87,8 +87,8 @@ export default function BottomNav() {
         <div
           style={{
             position: "absolute",
-            top: "0.8rem",
-            bottom: "0.8rem",
+            top: "clamp(0.4rem, 1vw, 0.8rem)",
+            bottom: "clamp(0.4rem, 1vw, 0.8rem)",
             left: pillStyle.left,
             width: pillStyle.width,
             borderRadius: "10rem",
@@ -113,9 +113,9 @@ export default function BottomNav() {
               }}
               className="font-sans relative flex items-center justify-center"
               style={{
-                fontSize: "2.6rem",
+                fontSize: "clamp(1.4rem, 3.5vw, 2.6rem)",
                 letterSpacing: "-0.05rem",
-                padding: "1rem 2.8rem",
+                padding: "clamp(0.6rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 2.8rem)",
                 borderRadius: "10rem",
                 color: isDisplay ? "var(--gray100)" : "var(--gray900)",
                 transition: `color ${PILL_DURATION} ${PILL_EASING}`,

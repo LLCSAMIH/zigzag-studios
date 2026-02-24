@@ -16,12 +16,11 @@ export default function HomeAboutTeaser() {
       style={{ backgroundColor: "#F0F2F5" }}
     >
       <p
-        className="text-gray100 font-sans"
+        className="text-gray100 font-sans max-w-full md:max-w-[70%]"
         style={{
           fontSize: "clamp(2.2rem, 3vw, 3.6rem)",
           lineHeight: 1.15,
           letterSpacing: "-0.05rem",
-          maxWidth: "70%",
         }}
       >
         Hi, we are ZigZag Studio. As a design-driven photography studio based in

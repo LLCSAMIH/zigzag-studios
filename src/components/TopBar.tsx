@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePageTransition } from "@/lib/TransitionContext";
 
 export default function TopBar() {
   const [hidden, setHidden] = useState(false);
+  const { navigateTo } = usePageTransition();
 
   useEffect(() => {
     const onScroll = () => setHidden(window.scrollY > 200);
@@ -29,7 +31,9 @@ export default function TopBar() {
         Capturing Premium Visuals.{" "}
         <span className="font-serif italic">For You.</span>
       </p>
-      <Image src="/logo.svg" alt="ZigZag Studio" width={220} height={36} priority />
+      <a href="/" onClick={(e) => { e.preventDefault(); navigateTo("/"); }}>
+        <Image src="/logo.svg" alt="ZigZag Studio" width={220} height={36} priority style={{ width: "clamp(14rem, 28vw, 22rem)", height: "auto" }} />
+      </a>
     </div>
   );
 }
