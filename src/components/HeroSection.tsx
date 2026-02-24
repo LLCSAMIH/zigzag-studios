@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
+import Image from "next/image";
 
 const words = [
   "sell homes faster.",
@@ -47,12 +48,23 @@ export default function HeroSection() {
   return (
     <section
       className="relative flex items-center section-padding"
-      style={{ minHeight: "100vh", backgroundColor: "var(--gray100)" }}
+      style={{ minHeight: "100vh" }}
     >
-      <div className="content-container">
+      <Image
+        src="/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        className="object-cover"
+      />
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: "rgba(28, 46, 62, 0.6)" }}
+      />
+      <div className="content-container relative z-10">
         <h1>
           <span
-            className="font-serif italic block text-gray900"
+            className="font-serif italic block text-white"
             style={{
               fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
               lineHeight: 1,
@@ -72,7 +84,7 @@ export default function HeroSection() {
           >
             {/* Current word */}
             <span
-              className="font-sans block text-gray900 absolute w-full"
+              className="font-sans block text-white absolute w-full"
               style={{
                 fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
                 letterSpacing: "-0.4rem",
@@ -85,7 +97,7 @@ export default function HeroSection() {
             </span>
             {/* Next word */}
             <span
-              className="font-sans block text-gray900 absolute w-full"
+              className="font-sans block text-white absolute w-full"
               style={{
                 fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
                 letterSpacing: "-0.4rem",
