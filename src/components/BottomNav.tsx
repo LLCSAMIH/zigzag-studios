@@ -80,6 +80,7 @@ export default function BottomNav() {
           borderRadius: "10rem",
           padding: "0.8rem",
           height: "7.2rem",
+          border: "1px solid rgba(255,255,255,0.15)",
         }}
       >
         {/* Sliding pill indicator */}
