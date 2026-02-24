@@ -33,14 +33,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${plusJakarta.variable} ${playfair.variable}`}>
         <TransitionProvider>
-          <GlobalLens>
-            <TopBar />
-            <div id="page-wrapper" className="page-wrapper">
+          <div id="page-wrapper" className="page-wrapper">
+            <GlobalLens>
+              <TopBar />
               {children}
-            </div>
-          </GlobalLens>
-          <FooterCTA />
-          <FooterBar />
+            </GlobalLens>
+            <FooterCTA />
+            <FooterBar />
+          </div>
           <BottomNav />
           <ServicePanel />
         </TransitionProvider>
