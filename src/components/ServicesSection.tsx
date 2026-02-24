@@ -12,9 +12,10 @@ export default function ServicesSection() {
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
+      style={{ backgroundColor: "#F0F2F5" }}
     >
       <h2
-        className="font-sans text-gray900"
+        className="font-sans text-gray100"
         style={{
           fontSize: "clamp(4.2rem, 6vw, 6.8rem)",
           lineHeight: 1,
@@ -26,19 +27,19 @@ export default function ServicesSection() {
       </h2>
 
       <div>
-        <div style={{ height: "1px", background: "var(--gray250)" }} />
+        <div style={{ height: "1px", background: "var(--gray300)" }} />
 
         {services.map((service) => (
           <div key={service.number}>
             <div
-              className="flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-colors duration-300 hover:bg-gray200 gap-2 md:gap-0"
+              className="flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-colors duration-300 hover:bg-gray300 gap-2 md:gap-0"
               style={{
                 padding: "2.4rem 0",
                 willChange: "color, background-color",
               }}
             >
               <span
-                className="font-sans text-gray900"
+                className="font-sans text-gray100"
                 style={{
                   fontSize: "2.2rem",
                   letterSpacing: "-0.05rem",
@@ -52,14 +53,14 @@ export default function ServicesSection() {
                 style={{
                   fontSize: "2rem",
                   letterSpacing: "-0.05rem",
-                  color: "var(--gray300)",
+                  color: "var(--gray250)",
                   flex: "1 1 50%",
                 }}
               >
                 {service.description}
               </span>
               <span
-                className="font-sans text-gray900 md:text-right"
+                className="font-sans text-gray100 md:text-right"
                 style={{
                   fontSize: "2rem",
                   letterSpacing: "-0.05rem",
@@ -69,7 +70,7 @@ export default function ServicesSection() {
                 {service.number}
               </span>
             </div>
-            <div style={{ height: "1px", background: "var(--gray250)" }} />
+            <div style={{ height: "1px", background: "var(--gray300)" }} />
           </div>
         ))}
       </div>

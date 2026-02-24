@@ -14,7 +14,7 @@ export default function HomeServicesOverview() {
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
       // To revert: remove style prop, change text-gray100 back to text-gray100, bg-gray100 to bg-gray100, var(--gray300) dividers to var(--gray250), hover:bg-gray300 to hover:bg-gray300
-      style={{ backgroundColor: "#ffffff" }}
+      style={{ backgroundColor: "#F0F2F5" }}
     >
       <h2
         className="font-sans text-gray100"

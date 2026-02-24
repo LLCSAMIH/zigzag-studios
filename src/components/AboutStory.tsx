@@ -11,10 +11,11 @@ export default function AboutStory() {
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
+      style={{ backgroundColor: "#F0F2F5" }}
     >
       <div style={{ maxWidth: "70%" }}>
         <p
-          className="text-gray900 font-sans"
+          className="text-gray100 font-sans"
           style={{
             fontSize: "clamp(2.2rem, 3vw, 3.6rem)",
             lineHeight: 1.15,
@@ -33,7 +34,7 @@ export default function AboutStory() {
             fontSize: "clamp(2.2rem, 3vw, 3.6rem)",
             lineHeight: 1.15,
             letterSpacing: "-0.05rem",
-            color: "var(--gray300)",
+            color: "var(--gray250)",
             marginBottom: "4rem",
           }}
         >
@@ -49,7 +50,7 @@ export default function AboutStory() {
             fontSize: "clamp(2.2rem, 3vw, 3.6rem)",
             lineHeight: 1.15,
             letterSpacing: "-0.05rem",
-            color: "var(--gray300)",
+            color: "var(--gray250)",
           }}
         >
           Our passionate team forms the foundation for everything we do. We

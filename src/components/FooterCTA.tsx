@@ -15,7 +15,7 @@ export default function FooterCTA() {
       // To revert: remove backgroundColor, restore gradient to var(--gray100), change text-gray100 back to text-gray100, bg-gray100 to bg-gray100
       style={{
         minHeight: "100vh",
-        backgroundColor: "#ffffff",
+        backgroundColor: "#F0F2F5",
       }}
     >
       <h2>

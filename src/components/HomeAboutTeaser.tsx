@@ -13,7 +13,7 @@ export default function HomeAboutTeaser() {
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
       // To revert: remove style prop and change text-gray100 back to text-gray900
-      style={{ backgroundColor: "#ffffff" }}
+      style={{ backgroundColor: "#F0F2F5" }}
     >
       <p
         className="text-gray100 font-sans"

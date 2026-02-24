@@ -12,9 +12,10 @@ export default function ProcessSection() {
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
+      style={{ backgroundColor: "#F0F2F5" }}
     >
       <h2
-        className="font-sans text-gray900"
+        className="font-sans text-gray100"
         style={{
           fontSize: "clamp(4.2rem, 6vw, 6.8rem)",
           lineHeight: 1,
@@ -26,7 +27,7 @@ export default function ProcessSection() {
       </h2>
 
       <div>
-        <div style={{ height: "1px", background: "var(--gray250)" }} />
+        <div style={{ height: "1px", background: "var(--gray300)" }} />
         {processSteps.map((step) => (
           <div key={step.number}>
             <div
@@ -34,7 +35,7 @@ export default function ProcessSection() {
               style={{ padding: "2.4rem 0" }}
             >
               <span
-                className="font-sans text-gray900"
+                className="font-sans text-gray100"
                 style={{
                   fontSize: "2.2rem",
                   letterSpacing: "-0.05rem",
@@ -44,7 +45,7 @@ export default function ProcessSection() {
                 {step.number}
               </span>
               <span
-                className="font-sans text-gray900"
+                className="font-sans text-gray100"
                 style={{
                   fontSize: "2.2rem",
                   letterSpacing: "-0.05rem",
@@ -58,14 +59,14 @@ export default function ProcessSection() {
                 style={{
                   fontSize: "2rem",
                   letterSpacing: "-0.05rem",
-                  color: "var(--gray300)",
+                  color: "var(--gray250)",
                   flex: "1 1 50%",
                 }}
               >
                 {step.description}
               </span>
             </div>
-            <div style={{ height: "1px", background: "var(--gray250)" }} />
+            <div style={{ height: "1px", background: "var(--gray300)" }} />
           </div>
         ))}
       </div>

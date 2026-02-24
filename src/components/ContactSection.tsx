@@ -59,8 +59,8 @@ export default function ContactSection() {
     padding: "1.6rem 0",
     background: "transparent",
     border: "none",
-    borderBottom: "1px solid var(--gray250)",
-    color: "var(--gray900)",
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+    color: "#000",
     outline: "none",
     width: "100%",
     fontFamily: "inherit",
@@ -72,7 +72,7 @@ export default function ContactSection() {
     fontSize: "1.2rem",
     letterSpacing: "0.08rem",
     textTransform: "uppercase" as const,
-    color: "var(--gray300)",
+    color: "#555",
     marginBottom: "0.8rem",
   };
 
@@ -80,9 +80,10 @@ export default function ContactSection() {
     cursor: "pointer",
     borderRadius: "1.2rem",
     padding: "2.4rem 2rem",
-    background: isSelected ? "var(--gray250)" : "var(--gray200)",
-    border: isSelected ? "1px solid var(--gray300)" : "1px solid transparent",
-    transition: "background 0.25s ease, border-color 0.25s ease",
+    background: isSelected ? "#e2e5ea" : "#e8eaee",
+    border: isSelected ? "2px solid #000" : "1px solid rgba(0,0,0,0.15)",
+    transition: "background 0.25s ease, border-color 0.25s ease, transform 0.15s ease",
+    transform: isSelected ? "scale(0.98)" : "scale(1)",
     display: "flex",
     flexDirection: "column",
     gap: "0.8rem",
@@ -92,6 +93,7 @@ export default function ContactSection() {
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
+      style={{ backgroundColor: "#F0F2F5" }}
     >
       <p
         className="font-sans"
@@ -99,7 +101,7 @@ export default function ContactSection() {
           fontSize: "1.4rem",
           letterSpacing: "0.12rem",
           textTransform: "uppercase",
-          color: "var(--gray300)",
+          color: "#555",
           marginBottom: "6rem",
         }}
       >
@@ -179,13 +181,13 @@ export default function ContactSection() {
                         fontSize: "1.2rem",
                         letterSpacing: "0.1rem",
                         textTransform: "uppercase",
-                        color: "var(--gray300)",
+                        color: "#555",
                       }}
                     >
                       {tier.number}
                     </span>
                     <span
-                      className="font-sans text-gray900"
+                      className="font-sans text-black"
                       style={{
                         fontSize: "1.8rem",
                         letterSpacing: "-0.08rem",
@@ -198,7 +200,7 @@ export default function ContactSection() {
                       className="font-serif italic"
                       style={{
                         fontSize: "1.4rem",
-                        color: "var(--gray300)",
+                        color: "#555",
                         letterSpacing: "-0.03rem",
                       }}
                     >
@@ -236,7 +238,7 @@ export default function ContactSection() {
                 className="font-sans"
                 style={{
                   ...inputStyle,
-                  colorScheme: "dark",
+                  colorScheme: "light",
                 }}
               />
             </div>
@@ -252,7 +254,7 @@ export default function ContactSection() {
                 style={{
                   ...inputStyle,
                   appearance: "none",
-                  color: form.time ? "var(--gray900)" : "var(--gray300)",
+                  color: form.time ? "#000" : "#999",
                 }}
               >
                 <option value="" disabled>
@@ -282,11 +284,11 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="font-sans text-gray100 flex items-center justify-center transition-opacity duration-300 hover:opacity-90 self-start"
+            className="font-sans text-gray900 flex items-center justify-center transition-opacity duration-300 hover:opacity-90 self-start"
             style={{
               fontSize: "1.8rem",
               letterSpacing: "-0.05rem",
-              background: "var(--gray900)",
+              background: "var(--gray100)",
               borderRadius: "10rem",
               padding: "1.4rem 4rem",
               marginTop: "2rem",
@@ -302,7 +304,7 @@ export default function ContactSection() {
         <div className="flex flex-col">
           <div>
             <h3
-              className="font-serif italic text-gray900"
+              className="font-serif italic text-black"
               style={{
                 fontSize: "2.8rem",
                 letterSpacing: "-0.05rem",
@@ -318,14 +320,14 @@ export default function ContactSection() {
             >
               <a
                 href="mailto:sfeirjean1@gmail.com"
-                className="font-sans text-gray900 transition-opacity duration-300 hover:opacity-70"
+                className="font-sans text-black transition-opacity duration-300 hover:opacity-70"
                 style={{ fontSize: "2.2rem", letterSpacing: "-0.05rem" }}
               >
                 sfeirjean1@gmail.com
               </a>
               <a
                 href="tel:+14407594048"
-                className="font-sans text-gray900 transition-opacity duration-300 hover:opacity-70"
+                className="font-sans text-black transition-opacity duration-300 hover:opacity-70"
                 style={{ fontSize: "2.2rem", letterSpacing: "-0.05rem" }}
               >
                 (440) 759-4048
@@ -334,7 +336,7 @@ export default function ContactSection() {
                 className="font-sans"
                 style={{
                   fontSize: "2rem",
-                  color: "var(--gray300)",
+                  color: "#555",
                   letterSpacing: "-0.05rem",
                 }}
               >
@@ -350,7 +352,7 @@ export default function ContactSection() {
                   className="font-sans transition-opacity duration-300 hover:opacity-100"
                   style={{
                     fontSize: "1.6rem",
-                    color: "var(--gray300)",
+                    color: "#555",
                     letterSpacing: "-0.05rem",
                   }}
                 >
@@ -364,11 +366,11 @@ export default function ContactSection() {
             className="font-sans"
             style={{
               fontSize: "1.6rem",
-              color: "var(--gray300)",
+              color: "#555",
               letterSpacing: "-0.03rem",
               marginTop: "auto",
               paddingTop: "4rem",
-              borderTop: "1px solid var(--gray250)",
+              borderTop: "1px solid rgba(0,0,0,0.15)",
             }}
           >
             We typically respond within 24 hours. For urgent inquiries, call or

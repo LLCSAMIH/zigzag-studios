@@ -19,6 +19,7 @@ export default function PortfolioGrid() {
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-medium`}
+      style={{ backgroundColor: "#F0F2F5" }}
     >
       {/* Filter tabs */}
       <div
@@ -35,11 +36,11 @@ export default function PortfolioGrid() {
               letterSpacing: "-0.05rem",
               padding: "0.8rem 2rem",
               borderRadius: "10rem",
-              border: "1px solid var(--gray250)",
+              border: "1px solid var(--gray300)",
               background:
-                activeFilter === cat.id ? "var(--gray900)" : "transparent",
+                activeFilter === cat.id ? "var(--gray100)" : "transparent",
               color:
-                activeFilter === cat.id ? "var(--gray100)" : "var(--gray900)",
+                activeFilter === cat.id ? "var(--gray900)" : "var(--gray100)",
               cursor: "pointer",
             }}
           >
