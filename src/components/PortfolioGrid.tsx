@@ -71,7 +71,7 @@ export default function PortfolioGrid() {
               className="absolute inset-0 flex flex-col justify-end"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)",
+                  "linear-gradient(to top, rgba(28,46,62,0.8) 0%, rgba(28,46,62,0.15) 50%, transparent 100%)",
                 padding: "4rem",
               }}
             >

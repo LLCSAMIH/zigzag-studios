@@ -1,56 +1,53 @@
 export interface PricingTier {
+  number: string;
   name: string;
-  price: string;
-  description: string;
+  tagline: string;
   features: string[];
   highlighted: boolean;
-  ctaLabel: string;
 }
 
 export const pricingTiers: PricingTier[] = [
   {
-    name: "Basic",
-    price: "$299",
-    description: "Perfect for small properties and quick turnarounds.",
+    number: "01",
+    name: "Listing Ready",
+    tagline: "Everything you need to list fast.",
     features: [
-      "Up to 10 HDR photos",
-      "Basic editing & color correction",
-      "24-hour delivery",
-      "Web-optimized images",
-      "MLS-ready formats",
+      "20–25 professional interior & exterior photos",
+      "Aerial drone photos to showcase the full property",
+      "MLS-ready formatting and delivery",
+      "24-hour turnaround on all images",
+      "Clean, natural lighting and composition",
+      "Optimized for fast, professional listings",
     ],
     highlighted: false,
-    ctaLabel: "Get Started",
   },
   {
-    name: "Professional",
-    price: "$599",
-    description: "Our most popular package for serious listings.",
+    number: "02",
+    name: "Market Leader",
+    tagline: "Stand out where it matters most.",
     features: [
-      "Up to 30 HDR photos",
-      "Advanced editing & retouching",
-      "Drone aerial shots included",
-      "Virtual twilight conversion",
-      "Same-day delivery available",
-      "Social media formats",
+      "30–35 professional interior & exterior photos",
+      "Everything in Listing Ready",
+      "Choice of Zillow 3D Home® tour or Matterport 3D tour",
+      "24-hour turnaround on all images",
+      "Enhanced visual storytelling to increase buyer engagement",
+      "Ideal for listings that need to stand out online",
     ],
     highlighted: true,
-    ctaLabel: "Book Now",
   },
   {
-    name: "Premium",
-    price: "$999",
-    description: "Full-service coverage for luxury properties.",
+    number: "03",
+    name: "Luxury Showcase",
+    tagline: "Premium attention for premium listings.",
     features: [
-      "Up to 50 HDR photos",
-      "Drone photography & video",
-      "3D virtual tour included",
-      "AI virtual staging (3 rooms)",
-      "Video walkthrough",
-      "Priority same-day delivery",
-      "Print-ready formats",
+      "35–40 professional interior & exterior photos",
+      "Everything in Market Leader",
+      "Cinematic video with premium composition",
+      "Vertical video for social media and listing platforms",
+      "Twilight / dusk exterior shots",
+      "24-hour turnaround on all images",
+      "Premium attention to detail for high-end listings",
     ],
     highlighted: false,
-    ctaLabel: "Contact Us",
   },
 ];

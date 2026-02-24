@@ -1,7 +1,6 @@
 export default function FooterBar() {
   return (
-    <footer className="flex flex-col md:flex-row items-center justify-between gap-6 section-padding"
-      style={{ paddingTop: "4rem", paddingBottom: "4rem" }}
+    <footer className="flex flex-col md:flex-row items-center justify-between gap-6 section-padding section-v-medium"
     >
       <span
         className="font-sans"

@@ -28,7 +28,7 @@ export default function BottomNav() {
       <div
         className="flex items-center gap-1"
         style={{
-          background: "rgba(0,0,0,0.5)",
+          background: "rgba(28,46,62,0.6)",
           backdropFilter: "blur(1rem)",
           WebkitBackdropFilter: "blur(1rem)",
           borderRadius: "10rem",

@@ -11,8 +11,8 @@ export default function PageHero({
 }) {
   return (
     <section
-      className="relative flex items-end section-padding section-v-hero"
-      style={{ minHeight: "100vh" }}
+      className="relative flex items-center section-padding section-v-hero"
+      style={{ minHeight: "100vh", backgroundColor: "var(--gray100)" }}
     >
       <div>
         <h1>

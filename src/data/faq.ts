@@ -7,12 +7,12 @@ export const faqs: FAQItem[] = [
   {
     question: "What's included in a photo package?",
     answer:
-      "Each package includes professional HDR photography, full editing and color correction, and delivery in multiple formats (web-optimized, MLS-ready, and print-ready). Higher tiers include drone aerials, virtual staging, and video walkthroughs.",
+      "Every package includes professional HDR photography, aerial drone shots, full editing and color correction, and delivery in MLS-ready formats with 24-hour turnaround. Market Leader adds 3D virtual tours, and Luxury Showcase includes cinematic video, vertical video for social media, and twilight exterior shots.",
   },
   {
     question: "How long does delivery take?",
     answer:
-      "Standard delivery is within 24 hours for Basic packages. Professional and Premium packages offer same-day delivery options. Rush delivery is available for an additional fee.",
+      "All packages include 24-hour turnaround on images. Rush delivery is available for an additional fee — contact us to discuss timing.",
   },
   {
     question: "Do you serve areas outside New Jersey?",

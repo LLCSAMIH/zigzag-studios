@@ -31,7 +31,7 @@ export default function ContactSection() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\n${form.message}`
     );
-    window.location.href = `mailto:jean@zigzagstudio.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:sfeirjean1@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const inputStyle: React.CSSProperties = {
@@ -156,18 +156,18 @@ export default function ContactSection() {
               style={{ marginBottom: "4rem" }}
             >
               <a
-                href="mailto:jean@zigzagstudio.com"
+                href="mailto:sfeirjean1@gmail.com"
                 className="font-sans text-gray900 transition-opacity duration-300 hover:opacity-70"
                 style={{ fontSize: "2.2rem", letterSpacing: "-0.05rem" }}
               >
-                jean@zigzagstudio.com
+                sfeirjean1@gmail.com
               </a>
               <a
-                href="tel:+10000000000"
+                href="tel:+14407594048"
                 className="font-sans text-gray900 transition-opacity duration-300 hover:opacity-70"
                 style={{ fontSize: "2.2rem", letterSpacing: "-0.05rem" }}
               >
-                (XXX) XXX-XXXX
+                (440) 759-4048
               </a>
               <span
                 className="font-sans"

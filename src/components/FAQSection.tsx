@@ -17,9 +17,9 @@ export default function FAQSection() {
       <h2
         className="font-sans text-gray900"
         style={{
-          fontSize: "clamp(4.4rem, 6vw, 6.8rem)",
+          fontSize: "clamp(4.2rem, 6vw, 6.8rem)",
           lineHeight: 1,
-          letterSpacing: "-0.4rem",
+          letterSpacing: "-0.2rem",
           marginBottom: "6rem",
         }}
       >

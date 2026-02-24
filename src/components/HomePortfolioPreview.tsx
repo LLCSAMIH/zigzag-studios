@@ -19,9 +19,9 @@ export default function HomePortfolioPreview() {
       <h2
         className="font-sans text-gray900"
         style={{
-          fontSize: "4.2rem",
-          lineHeight: 1.05,
-          letterSpacing: "-0.1rem",
+          fontSize: "clamp(4.2rem, 6vw, 6.8rem)",
+          lineHeight: 1,
+          letterSpacing: "-0.2rem",
           marginBottom: "8rem",
         }}
       >
@@ -50,7 +50,7 @@ export default function HomePortfolioPreview() {
               className="absolute inset-0 flex flex-col justify-end"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)",
+                  "linear-gradient(to top, rgba(28,46,62,0.8) 0%, rgba(28,46,62,0.15) 50%, transparent 100%)",
                 padding: "4rem",
               }}
             >

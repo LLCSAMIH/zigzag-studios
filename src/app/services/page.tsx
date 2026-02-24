@@ -10,7 +10,7 @@ import FooterBar from "@/components/FooterBar";
 export const metadata: Metadata = {
   title: "Services & Packages | ZigZag Studio",
   description:
-    "Professional photography packages starting at $299. HDR real estate photography, drone aerials, 3D virtual tours, AI virtual staging, and more.",
+    "Professional photography packages for real estate. HDR photography, drone aerials, 3D virtual tours, cinematic video, and more.",
 };
 
 export default function ServicesPage() {

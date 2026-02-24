@@ -17,13 +17,13 @@ export default function PricingSection() {
       <h2
         className="font-sans text-gray900"
         style={{
-          fontSize: "clamp(4.4rem, 6vw, 6.8rem)",
+          fontSize: "clamp(4.2rem, 6vw, 6.8rem)",
           lineHeight: 1,
-          letterSpacing: "-0.4rem",
+          letterSpacing: "-0.2rem",
           marginBottom: "6rem",
         }}
       >
-        Pricing
+        Packages
       </h2>
 
       <div
@@ -45,36 +45,38 @@ export default function PricingSection() {
           >
             <div>
               <span
+                className="font-sans block"
+                style={{
+                  fontSize: "1.4rem",
+                  letterSpacing: "0.1rem",
+                  color: "var(--gray300)",
+                  textTransform: "uppercase",
+                  marginBottom: "1.6rem",
+                }}
+              >
+                {tier.number}
+              </span>
+              <span
                 className="font-sans text-gray900 block"
                 style={{
-                  fontSize: "2rem",
-                  letterSpacing: "-0.05rem",
+                  fontSize: "3.2rem",
+                  letterSpacing: "-0.15rem",
+                  lineHeight: 1,
                   marginBottom: "1.2rem",
                 }}
               >
                 {tier.name}
               </span>
-              <span
-                className="font-sans text-gray900 block"
-                style={{
-                  fontSize: "4.8rem",
-                  letterSpacing: "-0.2rem",
-                  lineHeight: 1,
-                  marginBottom: "1.6rem",
-                }}
-              >
-                {tier.price}
-              </span>
               <p
-                className="font-sans"
+                className="font-serif italic"
                 style={{
-                  fontSize: "1.6rem",
+                  fontSize: "1.8rem",
                   color: "var(--gray300)",
                   letterSpacing: "-0.05rem",
                   marginBottom: "3.2rem",
                 }}
               >
-                {tier.description}
+                {tier.tagline}
               </p>
 
               <ul
@@ -126,7 +128,7 @@ export default function PricingSection() {
                   : "1px solid var(--gray250)",
               }}
             >
-              {tier.ctaLabel}
+              Book a Session
             </TransitionLink>
           </div>
         ))}

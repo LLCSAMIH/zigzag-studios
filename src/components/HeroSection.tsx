@@ -1,69 +1,100 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
-const words = ["Real Estate.", "Events.", "Food.", "Drone.", "Commercial."];
+const words = [
+  "sell homes faster.",
+  "attract more buyers.",
+  "win more listings.",
+  "build authority.",
+  "boost visibility.",
+];
 
 export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [phase, setPhase] = useState<"idle" | "exit">("idle");
+  const transitionEnabled = useRef(true);
+
+  const advance = useCallback(() => {
+    setPhase("exit");
+
+    // After the CSS transition completes (600ms), update index and reset
+    setTimeout(() => {
+      // Disable transitions for the instant reset
+      transitionEnabled.current = false;
+      setCurrentIndex((prev) => (prev + 1) % words.length);
+      setPhase("idle");
+
+      // Re-enable transitions on next frame
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          transitionEnabled.current = true;
+        });
+      });
+    }, 600);
+  }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % words.length);
-        setIsAnimating(false);
-      }, 500);
-    }, 3000);
+    const interval = setInterval(advance, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [advance]);
+
+  const nextIndex = (currentIndex + 1) % words.length;
+  const transitionStyle = transitionEnabled.current
+    ? "transform 0.6s cubic-bezier(0.65, 0, 0.35, 1)"
+    : "none";
 
   return (
     <section
-      className="relative flex items-end section-padding section-v-hero"
-      style={{ minHeight: "100vh" }}
+      className="relative flex items-center section-padding"
+      style={{ minHeight: "100vh", backgroundColor: "var(--gray100)" }}
     >
-      <div style={{ maxWidth: "75%" }}>
+      <div>
         <h1>
           <span
             className="font-serif italic block text-gray900"
             style={{
-              fontSize: "clamp(5.2rem, 8vw, 9.2rem)",
+              fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
               lineHeight: 1,
               letterSpacing: "-0.4rem",
             }}
           >
-            We capture moments in
+            We help realtors in the tri-state area
           </span>
           <span
-            className="block overflow-hidden relative"
+            className="block relative"
             style={{
-              height: "clamp(5.2rem, 8vw, 9.2rem)",
+              height: "clamp(3.6rem, 6vw, 7.2rem)",
               lineHeight: 1,
+              overflow: "hidden",
+              clipPath: "inset(0 0 0 0)",
             }}
           >
+            {/* Current word */}
             <span
               className="font-sans block text-gray900 absolute w-full"
               style={{
-                fontSize: "clamp(5.2rem, 8vw, 9.2rem)",
+                fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
                 letterSpacing: "-0.4rem",
-                transition: "transform 0.6s ease-in-out",
-                transform: isAnimating ? "translateY(-100%)" : "translateY(0)",
+                transition: transitionStyle,
+                transform:
+                  phase === "exit" ? "translateY(-100%)" : "translateY(0)",
               }}
             >
               {words[currentIndex]}
             </span>
+            {/* Next word */}
             <span
               className="font-sans block text-gray900 absolute w-full"
               style={{
-                fontSize: "clamp(5.2rem, 8vw, 9.2rem)",
+                fontSize: "clamp(3.6rem, 6vw, 7.2rem)",
                 letterSpacing: "-0.4rem",
-                transition: "transform 0.6s ease-in-out",
-                transform: isAnimating ? "translateY(0)" : "translateY(100%)",
+                transition: transitionStyle,
+                transform:
+                  phase === "exit" ? "translateY(0)" : "translateY(100%)",
               }}
             >
-              {words[(currentIndex + 1) % words.length]}
+              {words[nextIndex]}
             </span>
           </span>
         </h1>

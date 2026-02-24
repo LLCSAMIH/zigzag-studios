@@ -13,8 +13,7 @@ export default function FooterCTA() {
       className={`relative flex flex-col md:flex-row items-end justify-between section-reveal ${isVisible ? "visible" : ""} section-padding section-v-hero gap-12`}
       style={{
         minHeight: "100vh",
-        background:
-          "linear-gradient(135deg, #0D2B4A 0%, #1a3a5c 40%, #2a4a7a 70%, #3a2a5a 100%)",
+        background: "linear-gradient(to bottom, var(--gray100) 0%, transparent 35%)",
       }}
     >
       <h2>
@@ -41,7 +40,7 @@ export default function FooterCTA() {
       </h2>
 
       <a
-        href="mailto:jean@zigzagstudio.com"
+        href="mailto:sfeirjean1@gmail.com"
         className="font-sans text-gray900 relative group"
         style={{
           fontSize: "clamp(2.8rem, 4vw, 4.2rem)",

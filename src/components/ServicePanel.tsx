@@ -10,7 +10,7 @@ export default function ServicePanel() {
       {/* Trigger button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed z-50 flex items-center justify-center bg-white text-gray100 rounded-full transition-all duration-300 hover:scale-105"
+        className="fixed z-50 flex items-center justify-center bg-gray900 text-gray100 rounded-full transition-all duration-300 hover:scale-105"
         style={{
           bottom: "2rem",
           right: "2rem",
@@ -41,7 +41,7 @@ export default function ServicePanel() {
           bottom: "8rem",
           right: "2rem",
           width: "36rem",
-          background: "rgba(0,0,0,0.5)",
+          background: "rgba(28,46,62,0.6)",
           backdropFilter: "blur(1rem)",
           WebkitBackdropFilter: "blur(1rem)",
           borderRadius: "2rem",
@@ -65,23 +65,23 @@ export default function ServicePanel() {
 
         <div className="flex flex-col gap-4" style={{ marginBottom: "2.4rem" }}>
           <a
-            href="mailto:jean@zigzagstudio.com"
+            href="mailto:sfeirjean1@gmail.com"
             className="font-sans text-gray900 transition-opacity duration-300 hover:opacity-70"
             style={{ fontSize: "2rem", letterSpacing: "-0.05rem" }}
           >
-            jean@zigzagstudio.com
+            sfeirjean1@gmail.com
           </a>
           <a
-            href="tel:+10000000000"
+            href="tel:+14407594048"
             className="font-sans text-gray900 transition-opacity duration-300 hover:opacity-70"
             style={{ fontSize: "2rem", letterSpacing: "-0.05rem" }}
           >
-            (XXX) XXX-XXXX
+            (440) 759-4048
           </a>
         </div>
 
         <a
-          href="mailto:jean@zigzagstudio.com?subject=Book%20a%20Session"
+          href="mailto:sfeirjean1@gmail.com?subject=Book%20a%20Session"
           className="font-sans text-gray100 flex items-center justify-center transition-opacity duration-300 hover:opacity-90"
           style={{
             fontSize: "1.8rem",

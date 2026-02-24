@@ -3,8 +3,6 @@ import HomeAboutTeaser from "@/components/HomeAboutTeaser";
 import HomePortfolioPreview from "@/components/HomePortfolioPreview";
 import HomeServicesOverview from "@/components/HomeServicesOverview";
 import QuoteSection from "@/components/QuoteSection";
-import ClientsSection from "@/components/ClientsSection";
-import InsightsSection from "@/components/InsightsSection";
 import FooterCTA from "@/components/FooterCTA";
 import FooterBar from "@/components/FooterBar";
 
@@ -16,8 +14,6 @@ export default function HomePage() {
       <HomePortfolioPreview />
       <HomeServicesOverview />
       <QuoteSection />
-      <ClientsSection />
-      <InsightsSection />
       <FooterCTA />
       <FooterBar />
     </main>

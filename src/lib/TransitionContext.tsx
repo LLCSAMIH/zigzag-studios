@@ -46,10 +46,17 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
       // Phase 2: after overlay covers screen, push route
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+
+        // Reset zoom-out before new page renders
+        if (wrapper) wrapper.classList.remove("zoom-out");
+
         router.push(path);
 
-        // Phase 3: small buffer for React to render, then slide overlay out
+        // Phase 3: small buffer for React to render, then slide overlay out + scale-in new page
         setTimeout(() => {
+          const newWrapper = document.getElementById("page-wrapper");
+          if (newWrapper) newWrapper.classList.add("scale-in");
+
           if (overlay) {
             overlay.className = "page-transition-overlay slide-out";
           }
@@ -60,6 +67,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
               overlay.style.display = "none";
               overlay.className = "page-transition-overlay";
             }
+            if (newWrapper) newWrapper.classList.remove("scale-in");
             setIsTransitioning(false);
           }, 600);
         }, 150);

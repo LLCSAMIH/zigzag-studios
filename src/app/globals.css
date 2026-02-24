@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-gray100: #1a1a1a;
-  --color-gray200: #3b3b3b;
-  --color-gray250: #4b4b4b;
-  --color-gray300: #606060;
-  --color-gray900: #ffffff;
-  --color-brand: #0D2B4A;
-  --color-brand-light: #1a3a5c;
-  --color-brand-lighter: #2a4a7a;
-  --color-backdrop: rgba(0, 0, 0, 0.5);
+  --color-gray100: #1C2E3E;
+  --color-gray200: #2E4457;
+  --color-gray250: #3D5568;
+  --color-gray300: #C9D1D8;
+  --color-gray900: #F4F6F8;
+  --color-brand: #1C2E3E;
+  --color-brand-light: #2E4457;
+  --color-brand-lighter: #3D5568;
+  --color-backdrop: rgba(28, 46, 62, 0.6);
   --font-sans: var(--font-plus-jakarta);
   --font-serif: var(--font-playfair);
 }
 
 :root {
-  --gray100: #1a1a1a;
-  --gray200: #3b3b3b;
-  --gray250: #4b4b4b;
-  --gray300: #606060;
-  --gray900: #fff;
-  --brand: #0D2B4A;
+  --gray100: #1C2E3E;
+  --gray200: #2E4457;
+  --gray250: #3D5568;
+  --gray300: #C9D1D8;
+  --gray900: #F4F6F8;
+  --brand: #1C2E3E;
   --backdrop: blur(1rem);
-  --backdrop-background: rgba(0, 0, 0, 0.5);
+  --backdrop-background: rgba(28, 46, 62, 0.6);
 }
 
 html {
@@ -34,12 +34,41 @@ body {
   font-size: 2.2rem;
   line-height: 1.15;
   letter-spacing: -0.05rem;
-  background-color: var(--gray100);
+  background-color: #1C2E3E;
   color: var(--gray900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, #1a3a5c 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 80% 30%, #2a5a8a 0%, transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 60%, #1e4060 0%, transparent 60%),
+    #1C2E3E;
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation: gradient-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-drift {
+  0% {
+    background-position: 30% 70%, 70% 30%, 50% 50%;
+  }
+  33% {
+    background-position: 60% 40%, 40% 60%, 30% 70%;
+  }
+  66% {
+    background-position: 40% 60%, 80% 20%, 70% 30%;
+  }
+  100% {
+    background-position: 70% 30%, 30% 80%, 50% 50%;
+  }
 }
 
 * {
@@ -126,6 +155,8 @@ body {
   opacity: 0;
   transform: translateY(3rem);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: transform, opacity;
+  background-color: var(--gray100);
 }
 
 .section-reveal.visible {
@@ -145,6 +176,10 @@ body {
   transform: scale(0.92);
   border-radius: 2rem;
   overflow: hidden;
+}
+
+.page-wrapper.scale-in {
+  animation: page-scale-in 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .page-transition-overlay {
@@ -172,6 +207,11 @@ body {
 @keyframes page-slide-out {
   from { transform: translateY(0); }
   to { transform: translateY(-100%); }
+}
+
+@keyframes page-scale-in {
+  from { transform: scale(0.95); opacity: 0.6; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* Reduced motion */
