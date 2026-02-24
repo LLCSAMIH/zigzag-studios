@@ -13,9 +13,11 @@ export default function HomeServicesOverview() {
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
+      // To revert: remove style prop, change text-gray100 back to text-gray100, bg-gray100 to bg-gray100, var(--gray300) dividers to var(--gray250), hover:bg-gray300 to hover:bg-gray300
+      style={{ backgroundColor: "#ffffff" }}
     >
       <h2
-        className="font-sans text-gray900"
+        className="font-sans text-gray100"
         style={{
           fontSize: "clamp(4.2rem, 6vw, 6.8rem)",
           lineHeight: 1,
@@ -27,15 +29,15 @@ export default function HomeServicesOverview() {
       </h2>
 
       <div>
-        <div style={{ height: "1px", background: "var(--gray250)" }} />
+        <div style={{ height: "1px", background: "var(--gray300)" }} />
         {services.map((service) => (
           <div key={service.number}>
             <div
-              className="flex items-center justify-between transition-colors duration-300 hover:bg-gray200"
+              className="flex items-center justify-between transition-colors duration-300 hover:bg-gray300"
               style={{ padding: "2.4rem 0", willChange: "background-color" }}
             >
               <span
-                className="font-sans text-gray900"
+                className="font-sans text-gray100"
                 style={{
                   fontSize: "2.2rem",
                   letterSpacing: "-0.05rem",
@@ -44,7 +46,7 @@ export default function HomeServicesOverview() {
                 {service.name}
               </span>
               <span
-                className="font-sans text-gray900"
+                className="font-sans text-gray100"
                 style={{
                   fontSize: "2rem",
                   letterSpacing: "-0.05rem",
@@ -53,14 +55,14 @@ export default function HomeServicesOverview() {
                 {service.number}
               </span>
             </div>
-            <div style={{ height: "1px", background: "var(--gray250)" }} />
+            <div style={{ height: "1px", background: "var(--gray300)" }} />
           </div>
         ))}
       </div>
 
       <TransitionLink
         href="/services"
-        className="inline-block font-sans text-gray900 relative group"
+        className="inline-block font-sans text-gray100 relative group"
         style={{
           fontSize: "2.2rem",
           letterSpacing: "-0.05rem",
@@ -68,7 +70,7 @@ export default function HomeServicesOverview() {
         }}
       >
         Explore services
-        <span className="absolute bottom-0 left-0 w-0 h-px bg-gray900 transition-all duration-300 group-hover:w-full" />
+        <span className="absolute bottom-0 left-0 w-0 h-px bg-gray100 transition-all duration-300 group-hover:w-full" />
       </TransitionLink>
     </section>
   );
