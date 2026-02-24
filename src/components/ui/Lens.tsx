@@ -15,6 +15,7 @@ interface LensProps {
   isFocusing?: () => void;
   hovering?: boolean;
   setHovering?: (hovering: boolean) => void;
+  edgeThreshold?: number;
 }
 
 export const Lens: React.FC<LensProps> = ({
@@ -25,6 +26,7 @@ export const Lens: React.FC<LensProps> = ({
   position = { x: 200, y: 150 },
   hovering,
   setHovering,
+  edgeThreshold = 0,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -34,13 +36,25 @@ export const Lens: React.FC<LensProps> = ({
   const setIsHovering = setHovering || setLocalIsHovering;
 
   const [mousePosition, setMousePosition] = useState({ x: 100, y: 100 });
+  const [nearEdge, setNearEdge] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     setMousePosition({ x, y });
+
+    if (edgeThreshold > 0) {
+      const tooClose =
+        x < edgeThreshold ||
+        y < edgeThreshold ||
+        x > rect.width - edgeThreshold ||
+        y > rect.height - edgeThreshold;
+      setNearEdge(tooClose);
+    }
   };
+
+  const showLens = isHovering && !nearEdge;
 
   return (
     <div
@@ -81,7 +95,7 @@ export const Lens: React.FC<LensProps> = ({
         </div>
       ) : (
         <AnimatePresence>
-          {isHovering && (
+          {showLens && (
             <div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.58 }}

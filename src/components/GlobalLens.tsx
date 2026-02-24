@@ -8,7 +8,7 @@ export default function GlobalLens({
   children: React.ReactNode;
 }) {
   return (
-    <Lens zoomFactor={1.5} lensSize={100}>
+    <Lens zoomFactor={1.5} lensSize={100} edgeThreshold={80}>
       {children}
     </Lens>
   );
