@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 40" fill="none">
+  <!-- Camera shutter icon -->
+  <g transform="translate(0, 2)">
+    <circle cx="18" cy="18" r="17" stroke="white" stroke-width="2" fill="none"/>
+    <circle cx="18" cy="18" r="7" stroke="white" stroke-width="1.5" fill="none"/>
+    <line x1="18" y1="1" x2="18" y2="8" stroke="white" stroke-width="1.5"/>
+    <line x1="18" y1="28" x2="18" y2="35" stroke="white" stroke-width="1.5"/>
+    <line x1="1" y1="18" x2="8" y2="18" stroke="white" stroke-width="1.5"/>
+    <line x1="28" y1="18" x2="35" y2="18" stroke="white" stroke-width="1.5"/>
+    <line x1="5.8" y1="5.8" x2="10.7" y2="10.7" stroke="white" stroke-width="1.5"/>
+    <line x1="25.3" y1="25.3" x2="30.2" y2="30.2" stroke="white" stroke-width="1.5"/>
+    <line x1="30.2" y1="5.8" x2="25.3" y2="10.7" stroke="white" stroke-width="1.5"/>
+    <line x1="10.7" y1="25.3" x2="5.8" y2="30.2" stroke="white" stroke-width="1.5"/>
+  </g>
+  <!-- ZIGZAG STUDIO text -->
+  <text x="48" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="white" letter-spacing="3">ZIGZAG STUDIO</text>
+</svg>

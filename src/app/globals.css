@@ -1,26 +1,189 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gray100: #1a1a1a;
+  --color-gray200: #3b3b3b;
+  --color-gray250: #4b4b4b;
+  --color-gray300: #606060;
+  --color-gray900: #ffffff;
+  --color-brand: #0D2B4A;
+  --color-brand-light: #1a3a5c;
+  --color-brand-lighter: #2a4a7a;
+  --color-backdrop: rgba(0, 0, 0, 0.5);
+  --font-sans: var(--font-plus-jakarta);
+  --font-serif: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --gray100: #1a1a1a;
+  --gray200: #3b3b3b;
+  --gray250: #4b4b4b;
+  --gray300: #606060;
+  --gray900: #fff;
+  --brand: #0D2B4A;
+  --backdrop: blur(1rem);
+  --backdrop-background: rgba(0, 0, 0, 0.5);
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  letter-spacing: -0.05rem;
+  background-color: var(--gray100);
+  color: var(--gray900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Section padding utilities — bypasses Tailwind v4 rem issue */
+.section-padding {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.section-padding-left {
+  padding-left: 2rem;
+}
+.section-v-hero {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+.section-v-large {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+.section-v-medium {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+  .section-padding-left {
+    padding-left: 10rem;
+  }
+  .section-v-hero {
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+  }
+  .section-v-large {
+    padding-top: 26rem;
+    padding-bottom: 26rem;
+  }
+  .section-v-medium {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
+/* Scrollbar hide */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Keyframes */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up-enter {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slide-up-exit {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(3rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section reveal */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page transition */
+.page-wrapper {
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1),
+              border-radius 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.page-wrapper.zoom-out {
+  transform: scale(0.92);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--gray100);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.page-transition-overlay.slide-in {
+  animation: page-slide-in 0.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.page-transition-overlay.slide-out {
+  animation: page-slide-out 0.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes page-slide-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes page-slide-out {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .section-reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

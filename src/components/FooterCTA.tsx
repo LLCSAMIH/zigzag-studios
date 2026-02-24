@@ -1,0 +1,58 @@
+"use client";
+
+import { useRef } from "react";
+import { useInView } from "@/lib/useInView";
+
+export default function FooterCTA() {
+  const ref = useRef<HTMLElement>(null);
+  const isVisible = useInView(ref);
+
+  return (
+    <section
+      ref={ref}
+      className={`relative flex flex-col md:flex-row items-end justify-between section-reveal ${isVisible ? "visible" : ""} section-padding section-v-hero gap-12`}
+      style={{
+        minHeight: "100vh",
+        background:
+          "linear-gradient(135deg, #0D2B4A 0%, #1a3a5c 40%, #2a4a7a 70%, #3a2a5a 100%)",
+      }}
+    >
+      <h2>
+        <span
+          className="font-sans text-gray900 block"
+          style={{
+            fontSize: "clamp(5.2rem, 8vw, 9.2rem)",
+            lineHeight: 1,
+            letterSpacing: "-0.4rem",
+          }}
+        >
+          Ready to elevate
+        </span>
+        <span
+          className="font-serif italic text-gray900 block"
+          style={{
+            fontSize: "clamp(5.2rem, 8vw, 9.2rem)",
+            lineHeight: 1,
+            letterSpacing: "-0.4rem",
+          }}
+        >
+          your visuals.
+        </span>
+      </h2>
+
+      <a
+        href="mailto:jean@zigzagstudio.com"
+        className="font-sans text-gray900 relative group"
+        style={{
+          fontSize: "clamp(2.8rem, 4vw, 4.2rem)",
+          letterSpacing: "-0.1rem",
+          marginRight: "8rem",
+        }}
+      >
+        Book a Session
+        <span className="absolute bottom-0 left-0 w-full h-px bg-gray900 origin-left transition-transform duration-300 group-hover:scale-x-0" />
+        <span className="absolute bottom-0 left-0 w-full h-px bg-gray900 origin-right scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+      </a>
+    </section>
+  );
+}
