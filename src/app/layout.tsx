@@ -4,6 +4,7 @@ import { TransitionProvider } from "@/lib/TransitionContext";
 import TopBar from "@/components/TopBar";
 import BottomNav from "@/components/BottomNav";
 import ServicePanel from "@/components/ServicePanel";
+import GlobalLens from "@/components/GlobalLens";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,10 +31,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${plusJakarta.variable} ${playfair.variable}`}>
         <TransitionProvider>
-          <TopBar />
-          <div id="page-wrapper" className="page-wrapper">
-            {children}
-          </div>
+          <GlobalLens>
+            <TopBar />
+            <div id="page-wrapper" className="page-wrapper">
+              {children}
+            </div>
+          </GlobalLens>
           <BottomNav />
           <ServicePanel />
         </TransitionProvider>
