@@ -1,8 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useInView } from "@/lib/useInView";
-import { services } from "@/data/services";
+import { pricingTiers } from "@/data/pricing";
+
+const timeSlots = [
+  "8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM",
+  "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+  "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM",
+  "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM",
+  "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM",
+  "6:00 PM",
+];
 
 export default function ContactSection() {
   const ref = useRef<HTMLElement>(null);
@@ -11,9 +20,19 @@ export default function ContactSection() {
     name: "",
     email: "",
     phone: "",
-    service: "",
+    package: "",
+    address: "",
+    date: "",
+    time: "",
     message: "",
   });
+
+  // Pre-select package from query param (e.g. /contact?package=Market+Leader)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const pkg = params.get("package");
+    if (pkg) setForm((f) => ({ ...f, package: pkg }));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -26,10 +45,10 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(
-      `Inquiry: ${form.service || "General"}`
+      `Booking Request: ${form.package || "Package TBD"}`
     );
     const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\n${form.message}`
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nPackage: ${form.package}\nPreferred Date: ${form.date}\nPreferred Time: ${form.time}\nProperty Address: ${form.address}\n\nMessage:\n${form.message}`
     );
     window.location.href = `mailto:sfeirjean1@gmail.com?subject=${subject}&body=${body}`;
   };
@@ -48,12 +67,49 @@ export default function ContactSection() {
     transition: "border-color 0.3s ease",
   };
 
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    fontSize: "1.2rem",
+    letterSpacing: "0.08rem",
+    textTransform: "uppercase" as const,
+    color: "var(--gray300)",
+    marginBottom: "0.8rem",
+  };
+
+  const getCardStyle = (isSelected: boolean): React.CSSProperties => ({
+    cursor: "pointer",
+    borderRadius: "1.2rem",
+    padding: "2.4rem 2rem",
+    background: isSelected ? "var(--gray250)" : "var(--gray200)",
+    border: isSelected ? "1px solid var(--gray300)" : "1px solid transparent",
+    transition: "background 0.25s ease, border-color 0.25s ease",
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.8rem",
+  });
+
   return (
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "8rem" }}>
+      <p
+        className="font-sans"
+        style={{
+          fontSize: "1.4rem",
+          letterSpacing: "0.12rem",
+          textTransform: "uppercase",
+          color: "var(--gray300)",
+          marginBottom: "6rem",
+        }}
+      >
+        Start Your Project
+      </p>
+
+      <div
+        className="grid grid-cols-1 md:grid-cols-[3fr_2fr]"
+        style={{ gap: "8rem" }}
+      >
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <input
@@ -66,50 +122,154 @@ export default function ContactSection() {
             className="font-sans"
             style={inputStyle}
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            value={form.email}
-            onChange={handleChange}
-            required
-            className="font-sans"
-            style={inputStyle}
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone number"
-            value={form.phone}
-            onChange={handleChange}
-            className="font-sans"
-            style={inputStyle}
-          />
-          <select
-            name="service"
-            value={form.service}
-            onChange={handleChange}
-            className="font-sans"
-            style={{
-              ...inputStyle,
-              appearance: "none",
-              color: form.service ? "var(--gray900)" : "var(--gray300)",
-            }}
+
+          <div
+            className="grid grid-cols-1 md:grid-cols-2"
+            style={{ gap: "0 4rem" }}
           >
-            <option value="" disabled>
-              Select a service
-            </option>
-            {services
-              .filter((s) => s.number !== "00")
-              .map((s) => (
-                <option key={s.number} value={s.name} style={{ color: "#000" }}>
-                  {s.name}
-                </option>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className="font-sans"
+              style={inputStyle}
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone number"
+              value={form.phone}
+              onChange={handleChange}
+              className="font-sans"
+              style={inputStyle}
+            />
+          </div>
+
+          {/* Package selection */}
+          <div style={{ paddingTop: "2.4rem", paddingBottom: "1.2rem" }}>
+            <span className="font-sans" style={labelStyle}>
+              Select a Package
+            </span>
+            <div
+              className="grid grid-cols-1 md:grid-cols-3"
+              style={{ gap: "1.2rem", marginTop: "1.2rem" }}
+            >
+              {pricingTiers.map((tier) => (
+                <label key={tier.name} style={{ cursor: "pointer" }}>
+                  <input
+                    type="radio"
+                    name="package"
+                    value={tier.name}
+                    checked={form.package === tier.name}
+                    onChange={handleChange}
+                    style={{
+                      position: "absolute",
+                      opacity: 0,
+                      width: 0,
+                      height: 0,
+                    }}
+                  />
+                  <div style={getCardStyle(form.package === tier.name)}>
+                    <span
+                      className="font-sans"
+                      style={{
+                        fontSize: "1.2rem",
+                        letterSpacing: "0.1rem",
+                        textTransform: "uppercase",
+                        color: "var(--gray300)",
+                      }}
+                    >
+                      {tier.number}
+                    </span>
+                    <span
+                      className="font-sans text-gray900"
+                      style={{
+                        fontSize: "1.8rem",
+                        letterSpacing: "-0.08rem",
+                        lineHeight: 1.1,
+                      }}
+                    >
+                      {tier.name}
+                    </span>
+                    <span
+                      className="font-serif italic"
+                      style={{
+                        fontSize: "1.4rem",
+                        color: "var(--gray300)",
+                        letterSpacing: "-0.03rem",
+                      }}
+                    >
+                      {tier.tagline}
+                    </span>
+                  </div>
+                </label>
               ))}
-          </select>
+            </div>
+          </div>
+
+          <input
+            type="text"
+            name="address"
+            placeholder="Property address"
+            value={form.address}
+            onChange={handleChange}
+            className="font-sans"
+            style={inputStyle}
+          />
+
+          <div
+            className="grid grid-cols-1 md:grid-cols-2"
+            style={{ gap: "0 4rem" }}
+          >
+            <div>
+              <span className="font-sans" style={{ ...labelStyle, marginTop: "1.6rem" }}>
+                Preferred Date
+              </span>
+              <input
+                type="date"
+                name="date"
+                value={form.date}
+                onChange={handleChange}
+                className="font-sans"
+                style={{
+                  ...inputStyle,
+                  colorScheme: "dark",
+                }}
+              />
+            </div>
+            <div>
+              <span className="font-sans" style={{ ...labelStyle, marginTop: "1.6rem" }}>
+                Preferred Time
+              </span>
+              <select
+                name="time"
+                value={form.time}
+                onChange={handleChange}
+                className="font-sans"
+                style={{
+                  ...inputStyle,
+                  appearance: "none",
+                  color: form.time ? "var(--gray900)" : "var(--gray300)",
+                }}
+              >
+                <option value="" disabled>
+                  Select a time
+                </option>
+                {timeSlots.map((t) => (
+                  <option key={t} value={t} style={{ color: "#000" }}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
           <textarea
             name="message"
-            placeholder="Tell us about your project"
+            placeholder="Additional notes or special requests"
             value={form.message}
             onChange={handleChange}
             rows={4}
@@ -119,6 +279,7 @@ export default function ContactSection() {
               resize: "none",
             }}
           />
+
           <button
             type="submit"
             className="font-sans text-gray100 flex items-center justify-center transition-opacity duration-300 hover:opacity-90 self-start"
@@ -133,12 +294,12 @@ export default function ContactSection() {
               cursor: "pointer",
             }}
           >
-            Send Message
+            Request a Booking
           </button>
         </form>
 
         {/* Contact info */}
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col">
           <div>
             <h3
               className="font-serif italic text-gray900"
@@ -199,29 +360,20 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Map placeholder */}
-          <div
+          <p
+            className="font-sans"
             style={{
-              marginTop: "4rem",
-              height: "24rem",
-              background: "var(--gray200)",
-              borderRadius: "2rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              fontSize: "1.6rem",
+              color: "var(--gray300)",
+              letterSpacing: "-0.03rem",
+              marginTop: "auto",
+              paddingTop: "4rem",
+              borderTop: "1px solid var(--gray250)",
             }}
           >
-            <span
-              className="font-sans"
-              style={{
-                fontSize: "1.6rem",
-                color: "var(--gray300)",
-                letterSpacing: "-0.05rem",
-              }}
-            >
-              New Jersey, NJ
-            </span>
-          </div>
+            We typically respond within 24 hours. For urgent inquiries, call or
+            text directly.
+          </p>
         </div>
       </div>
     </section>

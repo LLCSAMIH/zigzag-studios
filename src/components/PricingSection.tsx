@@ -110,7 +110,7 @@ export default function PricingSection() {
             </div>
 
             <TransitionLink
-              href="/contact"
+              href={`/contact?package=${encodeURIComponent(tier.name)}`}
               className="font-sans flex items-center justify-center transition-opacity duration-300 hover:opacity-90"
               style={{
                 fontSize: "1.8rem",

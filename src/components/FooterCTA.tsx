@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useInView } from "@/lib/useInView";
+import TransitionLink from "@/components/TransitionLink";
 
 export default function FooterCTA() {
   const ref = useRef<HTMLElement>(null);
@@ -39,8 +40,8 @@ export default function FooterCTA() {
         </span>
       </h2>
 
-      <a
-        href="mailto:sfeirjean1@gmail.com"
+      <TransitionLink
+        href="/contact"
         className="font-sans text-gray900 relative group"
         style={{
           fontSize: "clamp(2.8rem, 4vw, 4.2rem)",
@@ -51,7 +52,7 @@ export default function FooterCTA() {
         Book a Session
         <span className="absolute bottom-0 left-0 w-full h-px bg-gray900 origin-left transition-transform duration-300 group-hover:scale-x-0" />
         <span className="absolute bottom-0 left-0 w-full h-px bg-gray900 origin-right scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-      </a>
+      </TransitionLink>
     </section>
   );
 }

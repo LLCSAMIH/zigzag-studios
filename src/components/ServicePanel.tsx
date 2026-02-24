@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { usePageTransition } from "@/lib/TransitionContext";
 
 export default function ServicePanel() {
   const [isOpen, setIsOpen] = useState(false);
+  const { navigateTo } = usePageTransition();
 
   return (
     <>
@@ -81,7 +83,12 @@ export default function ServicePanel() {
         </div>
 
         <a
-          href="mailto:sfeirjean1@gmail.com?subject=Book%20a%20Session"
+          href="/contact"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsOpen(false);
+            navigateTo("/contact");
+          }}
           className="font-sans text-gray100 flex items-center justify-center transition-opacity duration-300 hover:opacity-90"
           style={{
             fontSize: "1.8rem",
