@@ -14,7 +14,7 @@ export default function PageHero({
       className="relative flex items-center section-padding section-v-hero"
       style={{ minHeight: "100vh", backgroundColor: "var(--gray100)" }}
     >
-      <div>
+      <div className="content-container">
         <h1>
           <span
             className="font-sans block text-gray900"

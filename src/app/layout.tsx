@@ -31,7 +31,9 @@ export default function RootLayout({
       <body className={`${plusJakarta.variable} ${playfair.variable}`}>
         <TransitionProvider>
           <TopBar />
-          {children}
+          <div id="page-wrapper" className="page-wrapper">
+            {children}
+          </div>
           <BottomNav />
           <ServicePanel />
         </TransitionProvider>

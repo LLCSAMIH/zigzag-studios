@@ -36,6 +36,7 @@ export default function PortfolioShowcase() {
     <section
       ref={sectionRef}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding-left section-v-large`}
+      style={{ overflow: "visible" }}
     >
       <div
         className="flex items-start justify-between section-padding"

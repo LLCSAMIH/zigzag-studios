@@ -20,70 +20,90 @@ const TransitionContext = createContext<TransitionContextType>({
   isTransitioning: false,
 });
 
+const SLIDE_DURATION = 900;
+const EASING = "cubic-bezier(0.65, 0, 0.35, 1)";
+
 export function TransitionProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const lockRef = useRef(false);
 
   const navigateTo = useCallback(
     (path: string) => {
-      if (isTransitioning) return;
+      if (lockRef.current) return;
       if (path === pathname) return;
 
+      lockRef.current = true;
       setIsTransitioning(true);
 
       const wrapper = document.getElementById("page-wrapper");
-      const overlay = overlayRef.current;
+      if (!wrapper) return;
 
-      // Phase 1: zoom-out current page + slide overlay in
-      if (wrapper) wrapper.classList.add("zoom-out");
-      if (overlay) {
-        overlay.style.display = "block";
-        overlay.className = "page-transition-overlay slide-in";
-      }
+      // Lock wrapper to viewport size — prevents content below fold from leaking
+      const scrollY = window.scrollY;
+      wrapper.style.position = "fixed";
+      wrapper.style.top = `-${scrollY}px`;
+      wrapper.style.left = "0";
+      wrapper.style.right = "0";
+      wrapper.style.height = "100vh";
+      wrapper.style.overflow = "hidden";
+      wrapper.style.willChange = "transform";
 
-      // Phase 2: after overlay covers screen, push route
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+      // Phase 1: Slide current viewport out the top
+      requestAnimationFrame(() => {
+        wrapper.style.transition = `transform 0.5s ${EASING}`;
+        wrapper.style.transform = "translateY(-100vh)";
 
-        // Reset zoom-out before new page renders
-        if (wrapper) wrapper.classList.remove("zoom-out");
-
-        router.push(path);
-
-        // Phase 3: small buffer for React to render, then slide overlay out + scale-in new page
+        // Phase 2: After exit, hide + swap + position below
         setTimeout(() => {
-          const newWrapper = document.getElementById("page-wrapper");
-          if (newWrapper) newWrapper.classList.add("scale-in");
+          wrapper.style.visibility = "hidden";
+          wrapper.style.transition = "none";
+          wrapper.style.transform = "translateY(100vh)";
+          wrapper.style.top = "0";
 
-          if (overlay) {
-            overlay.className = "page-transition-overlay slide-out";
-          }
+          // Force flush
+          wrapper.offsetHeight;
 
-          // Cleanup after exit animation
+          // Scroll to top while hidden
+          window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+
+          // Push route — content swaps inside hidden wrapper
+          router.push(path);
+
+          // Phase 3: After React renders, slide new page in
           setTimeout(() => {
-            if (overlay) {
-              overlay.style.display = "none";
-              overlay.className = "page-transition-overlay";
-            }
-            if (newWrapper) newWrapper.classList.remove("scale-in");
-            setIsTransitioning(false);
-          }, 600);
-        }, 150);
-      }, 700);
+            requestAnimationFrame(() => {
+              wrapper.style.visibility = "";
+              wrapper.style.transition = `transform ${SLIDE_DURATION}ms ${EASING}`;
+              wrapper.style.transform = "translateY(0)";
+
+              // Cleanup after slide completes — restore normal flow
+              setTimeout(() => {
+                wrapper.style.position = "";
+                wrapper.style.top = "";
+                wrapper.style.left = "";
+                wrapper.style.right = "";
+                wrapper.style.height = "";
+                wrapper.style.overflow = "";
+                wrapper.style.transition = "";
+                wrapper.style.transform = "";
+                wrapper.style.willChange = "";
+                wrapper.style.visibility = "";
+
+                lockRef.current = false;
+                setIsTransitioning(false);
+              }, SLIDE_DURATION);
+            });
+          }, 120);
+        }, 500);
+      });
     },
-    [isTransitioning, pathname, router]
+    [pathname, router]
   );
 
   return (
     <TransitionContext.Provider value={{ navigateTo, isTransitioning }}>
-      {/* Transition overlay — persists across routes */}
-      <div
-        ref={overlayRef}
-        className="page-transition-overlay"
-        style={{ display: "none" }}
-      />
       {children}
     </TransitionContext.Provider>
   );

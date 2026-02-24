@@ -49,7 +49,7 @@ export default function HeroSection() {
       className="relative flex items-center section-padding"
       style={{ minHeight: "100vh", backgroundColor: "var(--gray100)" }}
     >
-      <div>
+      <div className="content-container">
         <h1>
           <span
             className="font-serif italic block text-gray900"
