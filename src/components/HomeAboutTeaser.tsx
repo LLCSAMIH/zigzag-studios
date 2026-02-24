@@ -12,9 +12,11 @@ export default function HomeAboutTeaser() {
     <section
       ref={ref}
       className={`section-reveal ${isVisible ? "visible" : ""} section-padding section-v-large`}
+      // To revert: remove style prop and change text-gray100 back to text-gray900
+      style={{ backgroundColor: "#ffffff" }}
     >
       <p
-        className="text-gray900 font-sans"
+        className="text-gray100 font-sans"
         style={{
           fontSize: "clamp(2.2rem, 3vw, 3.6rem)",
           lineHeight: 1.15,
@@ -29,7 +31,7 @@ export default function HomeAboutTeaser() {
       </p>
       <TransitionLink
         href="/about"
-        className="inline-block font-sans text-gray900 relative group"
+        className="inline-block font-sans text-gray100 relative group"
         style={{
           fontSize: "2.2rem",
           letterSpacing: "-0.05rem",
@@ -37,7 +39,7 @@ export default function HomeAboutTeaser() {
         }}
       >
         Learn more
-        <span className="absolute bottom-0 left-0 w-0 h-px bg-gray900 transition-all duration-300 group-hover:w-full" />
+        <span className="absolute bottom-0 left-0 w-0 h-px bg-gray100 transition-all duration-300 group-hover:w-full" />
       </TransitionLink>
     </section>
   );
