@@ -182,3 +182,9 @@ export const categories = [
   { id: "exterior", label: "Exterior" },
   { id: "drone", label: "Drone" },
 ] as const;
+
+export const homepageCategories = [
+  { id: "interior", label: "Modern Interiors" },
+  { id: "exterior", label: "Exterior & Architecture" },
+  { id: "drone", label: "Twilight & Aerial" },
+] as const;

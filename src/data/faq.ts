@@ -15,9 +15,9 @@ export const faqs: FAQItem[] = [
       "All packages include 24-hour turnaround on images. Rush delivery is available for an additional fee — contact us to discuss timing.",
   },
   {
-    question: "Do you serve areas outside New Jersey?",
+    question: "What areas do you serve?",
     answer:
-      "We primarily serve the greater New Jersey area, including North Jersey, Central Jersey, and the Jersey Shore. We're happy to discuss projects in neighboring states — contact us for availability.",
+      "We serve Somerset, Hoboken, NYC, Brooklyn, Philadelphia, Bergen County, and the broader tri-state area. If your listing is in the region, reach out — we're happy to confirm availability for your specific location.",
   },
   {
     question: "What equipment do you use?",
@@ -37,6 +37,11 @@ export const faqs: FAQItem[] = [
   {
     question: "What is a 3D virtual tour?",
     answer:
-      "A 3D virtual tour creates an immersive, walkthrough experience that lets buyers explore a property online from any device. It includes dollhouse view, floor plans, and measurement tools.",
+      "A 3D virtual tour lets buyers walk through your listing from any device, at any time. We offer both Zillow 3D Home tours (integrated directly into Zillow listings) and Matterport tours (with dollhouse view, floor plans, and measurement tools). Both reduce wasted showings and attract more serious buyers.",
+  },
+  {
+    question: "Do you fix weather issues in photos?",
+    answer:
+      "Yes. We offer blue sky replacement and green grass enhancement for exterior shots taken on overcast or off-season days. Every listing deserves picture-perfect photos regardless of weather conditions.",
   },
 ];

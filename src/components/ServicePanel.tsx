@@ -99,7 +99,7 @@ export default function ServicePanel() {
             marginBottom: "2.4rem",
           }}
         >
-          Book a Session
+          Schedule a Discovery Call
         </a>
 
         <div className="flex gap-6">

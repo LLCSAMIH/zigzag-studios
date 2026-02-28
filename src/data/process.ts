@@ -7,26 +7,20 @@ export interface ProcessStep {
 export const processSteps: ProcessStep[] = [
   {
     number: "01",
-    title: "Consultation",
+    title: "Schedule Your Call",
     description:
-      "We discuss your vision, property details, and specific requirements to plan the perfect shoot.",
+      "Book a free 30-minute discovery call. We discuss your active listings, upcoming properties, and goals — so we can recommend exactly the right visual package.",
   },
   {
     number: "02",
-    title: "Planning",
+    title: "Receive a Customized Package",
     description:
-      "We prepare shot lists, scout optimal lighting times, and coordinate logistics for shoot day.",
+      "Based on your listing, we put together a tailored recommendation — photos, drone, 3D tour, virtual staging, or any combination — matched to your property and budget.",
   },
   {
     number: "03",
-    title: "Shooting",
+    title: "Shoot & Deliver",
     description:
-      "Our team captures your property with professional HDR equipment, drones, and styling expertise.",
-  },
-  {
-    number: "04",
-    title: "Delivery",
-    description:
-      "Professional editing, color grading, and retouching — delivered fast in all formats you need.",
+      "We handle everything on shoot day. Professional visuals delivered fast — edited, formatted, and ready to upload directly to MLS and your marketing channels.",
   },
 ];

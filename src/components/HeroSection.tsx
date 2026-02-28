@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
+import TransitionLink from "@/components/TransitionLink";
 
 const words = [
   "sell homes faster.",
@@ -19,14 +20,11 @@ export default function HeroSection() {
   const advance = useCallback(() => {
     setPhase("exit");
 
-    // After the CSS transition completes (600ms), update index and reset
     setTimeout(() => {
-      // Disable transitions for the instant reset
       transitionEnabled.current = false;
       setCurrentIndex((prev) => (prev + 1) % words.length);
       setPhase("idle");
 
-      // Re-enable transitions on next frame
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           transitionEnabled.current = true;
@@ -59,8 +57,9 @@ export default function HeroSection() {
       />
       <div
         className="absolute inset-0"
-        style={{ backgroundColor: "rgba(28, 46, 62, 0.6)" }}
+        style={{ backgroundColor: "rgba(28, 46, 62, 0.72)" }}
       />
+
       <div className="relative z-10 text-center md:text-left">
         <h1>
           <span
@@ -75,6 +74,8 @@ export default function HeroSection() {
             <br className="md:hidden" />
             {" "}the tri-state area
           </span>
+
+          {/* Frosted glass rotating pill */}
           <span
             className="inline-block relative"
             style={{
@@ -139,6 +140,41 @@ export default function HeroSection() {
             </span>
           </span>
         </h1>
+
+        {/* CTA buttons */}
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+          style={{ marginTop: "4rem" }}
+        >
+          <TransitionLink
+            href="/contact"
+            className="font-sans text-white flex items-center justify-center cta-nudge"
+            style={{
+              background: "var(--accent)",
+              borderRadius: "10rem",
+              padding: "1.4rem 3.6rem",
+              fontSize: "clamp(1.6rem, 2vw, 2rem)",
+              letterSpacing: "-0.05rem",
+            }}
+          >
+            Schedule Your Free Discovery Call
+          </TransitionLink>
+          <TransitionLink
+            href="/portfolio"
+            className="font-sans text-gray900 flex items-center justify-center"
+            style={{
+              borderRadius: "10rem",
+              padding: "1.4rem 3.6rem",
+              fontSize: "clamp(1.6rem, 2vw, 2rem)",
+              letterSpacing: "-0.05rem",
+              border: "1px solid rgba(255,255,255,0.3)",
+              backdropFilter: "blur(0.5rem)",
+              background: "rgba(255,255,255,0.08)",
+            }}
+          >
+            View Portfolio
+          </TransitionLink>
+        </div>
       </div>
     </section>
   );

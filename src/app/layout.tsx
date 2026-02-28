@@ -10,13 +10,15 @@ import FooterBar from "@/components/FooterBar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ZigZag Studio | Premium Photography & Videography in New Jersey",
+  title:
+    "ZigZag Studio | Real Estate Photography — Somerset, Hoboken, NYC, NJ",
   description:
-    "Professional real estate, commercial, food, and event photography and videography in NJ. HDR photos, drone coverage, 3D virtual tours, and AI virtual staging.",
+    "Professional real estate photography, drone aerials, 3D virtual tours, and AI virtual staging. Serving Somerset, Hoboken, NYC, Brooklyn, Philadelphia, Bergen County and the tri-state area.",
   openGraph: {
-    title: "ZigZag Studio | Premium Photography & Videography in New Jersey",
+    title:
+      "ZigZag Studio | Real Estate Photography — Somerset, Hoboken, NYC, NJ",
     description:
-      "Professional real estate, commercial, food, and event photography and videography in NJ.",
+      "Professional real estate photography, drone aerials, 3D virtual tours, and AI virtual staging serving the tri-state area.",
     url: "https://zigzagstudio.com",
     siteName: "ZigZag Studio",
     type: "website",
@@ -52,13 +54,23 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "ZigZag Studio",
               description:
-                "Premium photography and videography studio in New Jersey",
+                "Professional real estate photography and videography serving Somerset, Hoboken, NYC, Brooklyn, Philadelphia, and Bergen County",
               url: "https://zigzagstudio.com",
+              telephone: "+14407594048",
+              email: "sfeirjean1@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "NJ",
                 addressCountry: "US",
               },
+              areaServed: [
+                "Somerset, NJ",
+                "Hoboken, NJ",
+                "New York City, NY",
+                "Brooklyn, NY",
+                "Philadelphia, PA",
+                "Bergen County, NJ",
+              ],
               priceRange: "$$",
               image: "https://zigzagstudio.com/logo.svg",
               sameAs: [],

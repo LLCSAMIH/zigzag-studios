@@ -1,17 +1,27 @@
 import HeroSection from "@/components/HeroSection";
-import HomeAboutTeaser from "@/components/HomeAboutTeaser";
+import WhyVisualsSection from "@/components/WhyVisualsSection";
+import WhyDiscoveryCallSection from "@/components/WhyDiscoveryCallSection";
 import HomePortfolioPreview from "@/components/HomePortfolioPreview";
 import HomeServicesOverview from "@/components/HomeServicesOverview";
-import QuoteSection from "@/components/QuoteSection";
+import MatterportSection from "@/components/MatterportSection";
+import RealtorsLoveSection from "@/components/RealtorsLoveSection";
+import HomeHowItWorksSection from "@/components/HomeHowItWorksSection";
+import HomeCTASection from "@/components/HomeCTASection";
+import ServiceAreasSection from "@/components/ServiceAreasSection";
 
 export default function HomePage() {
   return (
     <main>
       <HeroSection />
-      <HomeAboutTeaser />
+      <WhyVisualsSection />
+      <WhyDiscoveryCallSection />
       <HomePortfolioPreview />
       <HomeServicesOverview />
-      <QuoteSection />
+      <MatterportSection />
+      <RealtorsLoveSection />
+      <HomeHowItWorksSection />
+      <HomeCTASection />
+      <ServiceAreasSection />
     </main>
   );
 }

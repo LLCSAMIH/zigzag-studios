@@ -340,7 +340,7 @@ export default function ContactSection() {
                   letterSpacing: "-0.05rem",
                 }}
               >
-                New Jersey, United States
+                Somerset · Hoboken · NYC · Brooklyn · Philadelphia · Bergen County &amp; Beyond
               </span>
             </div>
 

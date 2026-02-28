@@ -26,7 +26,7 @@ export default function FooterCTA() {
             letterSpacing: "-0.4rem",
           }}
         >
-          Ready to elevate
+          Get Professional Photos
         </span>
         <span
           className="font-serif italic text-gray100 block"
@@ -36,7 +36,7 @@ export default function FooterCTA() {
             letterSpacing: "-0.4rem",
           }}
         >
-          your visuals.
+          That Drive Results.
         </span>
       </h2>
 
@@ -48,7 +48,7 @@ export default function FooterCTA() {
           letterSpacing: "-0.1rem",
         }}
       >
-        Book a Session
+        Schedule Your Free Discovery Call
         <span className="absolute bottom-0 left-0 w-full h-px bg-gray100 origin-left transition-transform duration-300 group-hover:scale-x-0" />
         <span className="absolute bottom-0 left-0 w-full h-px bg-accent origin-right scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
       </TransitionLink>

@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { services } from "@/data/services";
 import { useInView } from "@/lib/useInView";
 
 export default function ServicesSection() {
   const ref = useRef<HTMLElement>(null);
   const isVisible = useInView(ref);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section
@@ -28,47 +29,77 @@ export default function ServicesSection() {
 
       <div>
         <div style={{ height: "1px", background: "var(--gray300)" }} />
-
-        {services.map((service) => (
+        {services.map((service, i) => (
           <div key={service.number}>
-            <div
-              className="flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-colors duration-300 hover:bg-gray300 gap-2 md:gap-0"
+            <button
+              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              className="w-full flex items-center justify-between text-left transition-colors duration-300"
               style={{
                 padding: "2.4rem 0",
-                willChange: "color, background-color",
+                cursor: "pointer",
+                background: "transparent",
+                border: "none",
+                fontFamily: "inherit",
               }}
             >
               <span
                 className="font-sans text-gray100"
                 style={{
+                  fontSize: "2rem",
+                  letterSpacing: "-0.05rem",
+                  flex: "0 0 5rem",
+                  opacity: 0.4,
+                }}
+              >
+                {service.number}
+              </span>
+              <span
+                className="font-sans text-gray100"
+                style={{
                   fontSize: "2.2rem",
                   letterSpacing: "-0.05rem",
-                  flex: "1 1 40%",
+                  flex: "1",
+                  textAlign: "left",
                 }}
               >
                 {service.name}
               </span>
               <span
-                className="font-sans hidden md:block"
+                className="font-sans flex-shrink-0"
+                style={{
+                  fontSize: "2.4rem",
+                  marginLeft: "2rem",
+                  color: "var(--accent)",
+                  transition: "transform 0.3s ease",
+                  transform:
+                    openIndex === i ? "rotate(45deg)" : "rotate(0deg)",
+                }}
+              >
+                +
+              </span>
+            </button>
+            <div
+              style={{
+                maxHeight: openIndex === i ? "30rem" : "0",
+                opacity: openIndex === i ? 1 : 0,
+                overflow: "hidden",
+                transition: "max-height 0.4s ease, opacity 0.3s ease",
+              }}
+            >
+              <p
+                className="font-sans"
                 style={{
                   fontSize: "2rem",
                   letterSpacing: "-0.05rem",
                   color: "var(--gray250)",
-                  flex: "1 1 50%",
+                  lineHeight: 1.5,
+                  paddingBottom: "2.4rem",
+                  paddingLeft: "5rem",
+                  maxWidth: "70%",
                 }}
               >
                 {service.description}
-              </span>
-              <span
-                className="font-sans text-gray100 md:text-right"
-                style={{
-                  fontSize: "2rem",
-                  letterSpacing: "-0.05rem",
-                  flex: "0 0 6rem",
-                }}
-              >
-                {service.number}
-              </span>
+              </p>
             </div>
             <div style={{ height: "1px", background: "var(--gray300)" }} />
           </div>

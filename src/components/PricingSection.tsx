@@ -128,7 +128,7 @@ export default function PricingSection() {
                   : "1px solid var(--gray250)",
               }}
             >
-              Book a Session
+              Schedule a Discovery Call
             </TransitionLink>
           </div>
         ))}

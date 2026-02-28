@@ -183,6 +183,32 @@ body::before {
   border-bottom-color: var(--accent) !important;
 }
 
+/* CTA text nudge — subtle horizontal wiggle every 4s */
+@keyframes cta-nudge {
+  0%, 86% { transform: translateX(0); }
+  88% { transform: translateX(-0.25rem); }
+  90% { transform: translateX(0.25rem); }
+  92% { transform: translateX(-0.2rem); }
+  94% { transform: translateX(0.2rem); }
+  96% { transform: translateX(-0.1rem); }
+  98% { transform: translateX(0.1rem); }
+  100% { transform: translateX(0); }
+}
+
+.cta-nudge {
+  animation: cta-nudge 5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+/* Service card hover lift */
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-0.4rem);
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.1);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
