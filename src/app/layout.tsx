@@ -56,7 +56,7 @@ export default function RootLayout({
               description:
                 "Professional real estate photography and videography serving Somerset, Hoboken, NYC, Brooklyn, Philadelphia, and Bergen County",
               url: "https://zigzagstudio.com",
-              telephone: "+14407594048",
+              telephone: "+19085694458",
               email: "sfeirjean1@gmail.com",
               address: {
                 "@type": "PostalAddress",

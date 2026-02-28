@@ -326,11 +326,11 @@ export default function ContactSection() {
                 sfeirjean1@gmail.com
               </a>
               <a
-                href="tel:+14407594048"
+                href="tel:+19085694458"
                 className="font-sans text-black transition-opacity duration-300 hover:opacity-70"
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.2rem)", letterSpacing: "-0.05rem" }}
               >
-                (440) 759-4048
+                (908) 569-4458
               </a>
               <span
                 className="font-sans"

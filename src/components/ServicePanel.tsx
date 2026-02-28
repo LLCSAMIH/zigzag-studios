@@ -74,11 +74,11 @@ export default function ServicePanel() {
             sfeirjean1@gmail.com
           </a>
           <a
-            href="tel:+14407594048"
+            href="tel:+19085694458"
             className="font-sans text-gray900 transition-opacity duration-300 hover:opacity-70"
             style={{ fontSize: "2rem", letterSpacing: "-0.05rem" }}
           >
-            (440) 759-4048
+            (908) 569-4458
           </a>
         </div>
 
